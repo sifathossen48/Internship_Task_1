@@ -1,0 +1,137 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+        {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+       {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+       {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="outer-container">
+                <div class="bg-layer" style="background-image: url({{infos.testimonial_page_title_background.url}});"></div>
+                <div class="large-container">
+                    <div class="title-box">
+                        <h2>{{infos.testimonial_page_title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- testimonial-style-two -->
+        <section class="testimonial-style-two testimonial-page">
+            <div class="large-container">
+                <div class="three-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
+                     {% for t in testimonials %}
+                    <div class="testimonial-block-two">
+                        <div class="inner-box">
+                            <div class="quote">“</div>
+                            <p>{{t.quote}}</p>
+                            <div class="author-box">
+                                <figure class="author-thumb"><img src="{{t.author_image.url}}" alt=""></figure>
+                                <h4>{{t.author_name}}</h4>
+                                <span class="designation">{{t.author_title}}</span>
+                            </div>
+                        </div>
+                    </div>
+                     {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- testimonial-style-two end -->
+
+
+        <!-- testimonial-section -->
+        <section class="testimonial-section testimonial-page">
+            <div class="large-container">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 thumb-column">
+                        <div class="thumb-item">
+                            <div class="quote-box"><img src="assets/images/icons/icon-7.png" alt=""></div>
+                            <div class="thumb-box">
+                                {% for top in topClients %}
+                                <div class="thumb thumb-{{top.thumb_no}}" style="background-image:url({{top.image.url}});"></div>
+                                 {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                        <div class="carousel-content">
+                            <div class="sec-title">
+                                <span class="sub-title">Client Testimonial</span>
+                                <h2>Our Client gave <span>us <br />Feedback</span></h2>
+                            </div>
+                            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                                 {% for t in testimonials %}
+                                <div class="testimonial-block-one">
+                                    <div class="inner-box">
+                                        <div class="quote">“</div>
+                                        <h4 class="text">{{t.quote}} <span>”</span></h4>
+                                        <div class="author-box">
+                                            <figure class="author-thumb"><img src="{{t.author_image.url}}" alt=""></figure>
+                                            <h4>{{t.author_name}}</h4>
+                                            <span class="designation">{{t.author_title}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- testimonial-section end -->
+
+
+        <!-- main-footer -->
+        {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+ {% endblock %}

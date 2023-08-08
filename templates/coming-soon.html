@@ -1,0 +1,53 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!-- comingsoon-section -->
+        <section class="comingsoon-section centred">
+            <div class="bg-layer" style="background-image: url({{comingsoon.page_background.url}});"></div>
+            <div class="large-container">
+                <div class="inner-box">
+                    <figure class="logo"><a href="index.html"><img src="{{infos.logo.url}}" alt=""></a></figure>
+                    <h3>{{comingsoon.page_subtitle}}</h3>
+                    <h2>{{comingsoon.page_title}}</h2>
+                    <div class="timer p_relative d_block">
+                        <div class="cs-countdown" data-countdown="{{comingsoon.date}}"></div>
+                    </div>
+                    <div class="form-inner">
+                        <h4>{{comingsoon.form_title}} </h4>
+                        <form action="{% url 'subscribe' %}" method="post">
+                            {% for m in messages %}
+                                 {{m}}
+                            {% endfor %}
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email Address" required="">
+                                <button type="submit" class="theme-btn btn-one">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="btn-box">
+                        <a href="{% url 'home' %}" class="theme-btn btn-one">Back To Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--comingsoon-section end -->
+        
+    </div>
+
+
+{% endblock %}

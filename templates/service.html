@@ -1,0 +1,178 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+        {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+       {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="outer-container">
+                <div class="bg-layer" style="background-image: url({{infos.service_page_title_background.url}});"></div>
+                <div class="large-container">
+                    <div class="title-box">
+                        <h2>{{infos.service_page_title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- about-style-three -->
+        <section class="about-style-three">
+            <div class="pattern-layer" style="background-image: url({{infos.service_about_background.url}});"></div>
+            <div class="large-container">
+                <div class="row clearfix">
+                    <div class="col-lg-5 col-md-12 col-sm-12 content-column">
+                        <div class="content-box">
+                            <div class="sec-title">
+                                <span class="sub-title">Who We are</span>
+                                <h2>About the <span>{{infos.service_about_title}}</span></h2>
+                            </div>
+                            <div class="text">
+                                <p>Penatibus turpis vel eget cursus ut et. Lacus velit, venenatis eu morbi egestas amet, nunc. Ut sem libero sed nisl tincidunt tristique egestas non vitae. Pulvinar quis duis leo in quis arcu enim. Vulputate velit mattis tincidunt nunc sed mauris, sit amet ullamcorper. Ullamcorper nunc mauris nunc proin sollicitudin mattis viverra purus congue.</p>
+                                <p>Enim auctor est et, amet. Ante ridiculus sed eget felis, aliquam venenatis. Amet dolor feugiat ligula gravida a malesuada eu adipiscing volutpat.</p>
+                                <a href="about.html" class="theme-btn btn-one">About Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12 col-sm-12 image-column">
+                        <div data-animation-box class="image-box">
+                            <figure data-animation-text class="overlay-anim-white-bg image image-1" data-animation="overlay-animation"><img src="{{infos.service_about_image.url}}" alt=""></figure>
+                            <figure data-animation-text class="overlay-anim-white-bg image image-2" data-animation="overlay-animation"><img src="{{infos.service_about_image2.url}}" alt=""></figure>
+                            <div class="icon-box"><img src="{{infos.service_about_icon.url}}" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about-style-three end -->
+
+
+        <!-- service-style-two -->
+        <section class="service-style-two centred">
+            <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="background-image: url(assets/images/background/service-bg.jpg);"></div>
+            <div class="large-container">
+                <div class="sec-title">
+                    <span class="sub-title">Serivcess</span>
+                    <h2>Solutions we <span>provide</span>.</h2>
+                </div>
+                <div class="row clearfix">
+                    {% for sol in services_sol %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <a href="{% url 'service-details' sol.id %}" class="inner-box">
+                                <div class="icon-box"><img src="{{sol.service_logo.url}}" alt=""></div>
+                                <h4>{{sol.title}}</h4>
+                                <p>{{sol.desc}}</p>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- service-style-two end -->
+
+
+        <!-- service-section -->
+        <section class="service-section service-page centred">
+            <div class="large-container">
+                <div class="sec-title">
+                    <span class="sub-title">Serivcess</span>
+                    <h2>Our included <span>service</span></h2>
+                </div>
+                <div class="row clearfix">
+                    {% for inc in services_include %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <a href="{% url 'service-details' inc.id %}" class="inner-box">
+                                <div class="icon-box"><img src="{{inc.service_logo.url}}" alt=""></div>
+                                <h4>{{inc.title}}</h4>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- service-section end -->
+
+
+        <!-- testimonial-style-three -->
+        <section class="testimonial-style-three">
+            <div class="large-container">
+                <div class="inner-container">
+                    <div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                       {% for t in testimonials %}
+                        <div class="testimonial-block-one">
+                            <div class="inner-box">
+                                <div class="quote">“</div>
+                                <h4 class="text">{{t.quote}}</h4>
+                                <div class="author-box">
+                                    <figure class="author-thumb"><img src="{{t.author_image.url}}" alt=""></figure>
+                                    <h4>{{t.author_name}}</h4>
+                                    <span class="designation">{{t.author_title}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- testimonial-style-three end -->
+
+
+        <!-- main-footer -->
+       {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+{% endblock %}

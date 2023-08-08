@@ -1,0 +1,144 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+       {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="outer-container">
+                <div class="bg-layer" style="background-image: url(assets/images/background/page-title-6.jpg);"></div>
+                <div class="large-container">
+                    <div class="title-box">
+                        <h2>Team Details</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- team-details -->
+        <section class="team-details">
+            <div class="large-container">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{teamMember.profile.url}}" alt=""></figure>
+                        <ul class="social-links clearfix">
+                            <li><a href="index.html"><i class="icon-3"></i></a></li>
+                            <li><a href="index.html"><i class="icon-4"></i></a></li>
+                            <li><a href="index.html"><i class="icon-5"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <h2>{{teamMember.name}}</h2>
+                        <span class="designation">{{teamMember.title}}</span>
+                        <ul class="social-links clearfix">
+                            <li><a href="index.html"><i class="icon-3"></i></a></li>
+                            <li><a href="index.html"><i class="icon-4"></i></a></li>
+                            <li><a href="index.html"><i class="icon-5"></i></a></li>
+                        </ul>
+                        <p>{{teamMember.desc}}</p>
+                        <ul class="info-list clearfix">
+                            <li><span>Age :</span> {{teamMember.age}}</li>
+                            <li><span>Contact Me :</span> <a href="tel:{{teamMember.phone}}">{{teamMember.phone}}</a></li>
+                            <li><span>Experience :</span>{{teamMember.experience}}</li>
+                            <li><span>Email :</span> <a href="mailto:{{teamMember.email}}">{{teamMember.email}}</a></li>
+                            <li><span>Skills :</span>
+                                {% for skill in teamMember.skill.all %}
+                                {{skill.skill_name}},
+                                {% endfor %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- team-details end -->
+
+
+        <!-- team-section -->
+        <section class="team-section team-details-page">
+            <div class="large-container">
+                <div class="sec-title centred">
+                    <h2>Other Team <span>members</span></h2>
+                </div>
+                <div class="row clearfix">
+                    {% for other_members in teamMember.get_other_member %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-block">
+                        <div class="team-block-one">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure class="image"><img src="{{other_members.profile.url}}" alt=""></figure>
+                                    <ul class="social-links clearfix">
+                                        <li><a href="https://{{other_members.facebook}}"><i class="icon-3"></i></a></li>
+                                        <li><a href="https://{{other_members.instagram}}"><i class="icon-4"></i></a></li>
+                                        <li><a href="https://{{other_members.twitter}}"><i class="icon-5"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="content-box">
+                                    <span class="count-text">{{other_members.id}}</span>
+                                    <h4><a href="team-details.html">{{other_members.name}}</a></h4>
+                                    <span class="designation">{{other_members.title}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- team-section end -->
+
+
+        <!-- main-footer -->
+        {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+{% endblock %}
+

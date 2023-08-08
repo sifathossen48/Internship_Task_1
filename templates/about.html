@@ -1,0 +1,206 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+         {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+       {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+       {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="outer-container">
+                <div class="bg-layer" style="background-image: url({{infos.about_title_background.url}});"></div>
+                <div class="large-container">
+                    <div class="title-box">
+                        <h2>ABOUT</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- about-section -->
+        <section class="about-section alternat-2">
+            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-4.png);"></div>
+            <div class="large-container">
+                <div class="row align-items-center clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div data-animation-box class="image-box p_relative d_block">
+                            <figure data-animation-text class="overlay-anim-white-bg image p_relative d_block" data-animation="overlay-animation"><img src="{{abouts.work_sample_picture.url}}" alt=""></figure>
+                            <div class="curve-text">
+                                <div class="shape" style="background-image: url(assets/images/shape/shape-5.png);"></div>
+                                <span class="curved-circle">Welcome to our company</span>
+                                <div class="text">
+                                    <div class="inner">
+                                        <h2>{{abouts.year_of_company_experience}}<span>Years</span></h2>
+                                        <h3>Experience</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content-box p_relative mr_50">
+                            <div class="sec-title">
+                                <span class="sub-title">GET TO KNOW</span>
+                                <h2>{{abouts.title}}</h2>
+                            </div>
+                            <div class="text">
+                                <p>{{abouts.desc}}</p>
+                            </div>
+                            <div class="btn-box">
+                                <a href="about.html" class="theme-btn btn-one">All Informamtion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about-section end -->
+
+
+        <!-- service-section -->
+        <section class="service-section centred">
+            <div class="large-container">
+                <div class="row clearfix">
+                    {% for s in services %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <a href="{% url 'service-details' s.id %}" class="inner-box">
+                                <div class="icon-box"><img src="{{s.service_logo.url}}" alt=""></div>
+                                <h4>{{s.title}}</h4>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- service-section end -->
+
+
+        <!-- testimonial-style-two -->
+        <section class="testimonial-style-two">
+            <div class="bg-layer" style="background-image: url(assets/images/background/testimonial-bg.jpg);"></div>
+            <div class="large-container">
+                <div class="three-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
+                    {% for t in testimonials %}
+                    <div class="testimonial-block-two">
+                        <div class="inner-box">
+                            <div class="quote">“</div>
+                            <p>{{t.quote}}</p>
+                            <div class="author-box">
+                                <figure class="author-thumb"><img src="{{t.author_image.url}}" alt=""></figure>
+                                <h4>{{t.author_name}}</h4>
+                                <span class="designation">{{t.author_title}}</span>
+                            </div>
+                        </div>
+                    </div>
+                   {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- testimonial-style-two end -->
+
+
+        <!-- clients-section -->
+        <section class="clients-section about-page">
+            <div class="auto-container">
+                <div class="five-item-carousel owl-carousel owl-theme owl-nav-none owl-dots-none">
+                    {% for c in clients %}
+                    <figure class="clients-logo"><a href="https://{{c.website_link}}"><img src="{{c.company_logo.url}}" alt=""></a></figure>
+                        {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- clients-section end -->
+
+
+        <!-- team-section -->
+        <section class="team-section about-page">
+            <div class="large-container">
+                <div class="sec-title centred">
+                    <span class="sub-title">Professional</span>
+                    <h2>Our Team</h2>
+                </div>
+                <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
+
+                    {% for teamMember in professional %}
+                    <div class="team-block-one">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><img src="{{teamMember.profile.url}}" alt=""></figure>
+                                <ul class="social-links clearfix">
+                                    <li><a href="https://{{teamMember.facebook}}"><i class="icon-3"></i></a></li>
+                                    <li><a href="https://{{teamMember.instagram}}"><i class="icon-4"></i></a></li>
+                                    <li><a href="https://{{teamMember.twitter}}"><i class="icon-5"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="content-box">
+                                <span class="count-text">{{teamMember.id}}</span>
+                                <a href="{% url 'team-details' teamMember.id %}">
+                                  <h4>  {{teamMember.name}} </h4>
+                                </a>
+                                <span class="designation">{{teamMember.title}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+        <!-- team-section end -->
+
+
+        <!-- main-footer -->
+       {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+{% endblock %}
+

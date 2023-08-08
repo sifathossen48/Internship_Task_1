@@ -1,0 +1,61 @@
+  <footer class="main-footer">
+            <figure class="image-layer-1"><img src="{{infos.footer_image.url}}" alt=""></figure>
+            <figure class="image-layer-2"><img src="{{infos.footer_image2.url}}" alt=""></figure>
+            <figure class="image-layer-3"><img src="{{infos.footer_image3.url}}" alt=""></figure>
+            <div class="bg-layer" style="background-image: url(assets/images/background/footer-bg.jpg);"></div>
+            <div class="large-container">
+                <div class="sec-title centred">
+                    <span class="sub-title">Contact Us</span>
+                    <h2>{{infos.contact_title}} <br />{{infos.contact_subtitle}}.</h2>
+                    <a href="{% url 'contact' %}"><i class="icon-7"></i></a>
+                </div>
+                <div class="widget-section">
+                    <div class="row clearfix">
+                        <div class="col-lg-5 col-md-12 col-sm-12 footer-column">
+                            <div class="contact-widget footer-widget">
+                                <div class="widget-title">
+                                    <h3>Office Info</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li><i class="icon-17"></i><a href="tel:{{infos.phone}}">{{infos.phone}}</a></li>
+                                        <li><i class="icon-18"></i><a href="mailto:{{infos.email}}">{{infos.email}}</a></li>
+                                        <li><i class="far fa-map-marker-alt"></i>{{infos.location}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-12 offset-xl-3 footer-column">
+                            <div class="subscribe-widget footer-widget">
+                                <div class="widget-title">
+                                    <h3>Newsletter</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <form action="{% url 'newsLetter' %}" method="post">
+                                            {% for m in messages%}
+                                               <li>{{m}}</li>
+                                             {% endfor %}
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Email Address" required="">
+                                            <button type="submit">Send</button>
+                                        </div>
+                                    </form>
+                                    <ul class="social-links clearfix">
+                                        <li><h4>Social Network :</h4></li>
+                                        <li><a href="https://{{infos.facebook}}"><i class="icon-3"></i></a></li>
+                                        <li><a href="https://{{infos.instagram}}"><i class="icon-4"></i></a></li>
+                                        <li><a href="https://{{infos.twitter}}"><i class="icon-5"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom centred">
+                    <div class="copyright">
+                        <h4>Copyright By &copy; <a href="https://{{infos.designer_profile}}">{{infos.designer}}</a> - {{infos.designs_year}}</h4>
+                    </div>
+                </div>
+            </div>
+        </footer>

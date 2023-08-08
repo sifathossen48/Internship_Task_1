@@ -1,0 +1,117 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html'%}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+       {% include 'header.html'%}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="outer-container">
+                <div class="bg-layer" style="background-image: url({{service.title_background.url}});"></div>
+                <div class="large-container">
+                    <div class="title-box">
+                        <h2>{{service.title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- service-details -->
+        <section class="service-details">
+            <div class="large-container">
+                <div class="row clearfix">
+                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                        <div class="service-details-content">
+                            <div class="text">
+                                <div class="sec-title">
+                                    <h2>{{service.title}}</h2>
+                                </div>
+                                <p>{{service.desc}}</p>
+                            </div>
+                            <div class="image-box">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 small-column">
+                                        <figure class="image"><img src="{{service.sample_image.url}}" alt=""></figure>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 small-column">
+                                        <figure class="image"><img src="{{service.sample_image2.url}}" alt=""></figure>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 big-column">
+                                        <figure class="image"><img src="{{service.sample_image3.url}}" alt=""></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                        <div class="service-sidebar">
+                            <div class="category-widget">
+                                <h3>All Services</h3>
+                                <ul class="category-list clearfix">
+                                    {% for s in services %}
+                                    <li><a href="{% url 'service-details' s.id %}" class="current">{{s.title}}<i class="icon-15"></i></a></li>
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- service-details end -->
+
+
+        <!-- main-footer -->
+       {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+ {% endblock %}

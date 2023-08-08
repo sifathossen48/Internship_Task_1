@@ -1,0 +1,313 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+        {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- banner-section -->
+        <section class="banner-section centred" >
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="banner-carousel owl-carousel owl-theme owl-dots-none" id="sync1">
+                {% for slider in sliders %}
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url({{slider.banner.url}});"></div>
+                    <div class="auto-container">
+                        <div class="content-box">
+                            <div class="icon-box"><img src="{{slider.image.url}}" alt=""></div>
+                            <h2>{{slider.title}} <br /><span>{{slider.title2}}</span> {{slider.year}}</h2>
+                            <div class="btn-box">
+                                <a href="index.html" class="theme-btn btn-one">View The Prrojects</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="banner-thumb-inner clearfix">
+                <div class="owl-carousel owl-theme owl-dots-none owl-nav-none" id="sync2">
+                    {% for s in sliders %}
+                     <div class="single-item">
+                        <span class="count-text">{{s.item_no}}</span>
+                        <h6>{{s.item_name}}</h6>
+                        <p>{{s.item_location}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <ul class="social-links clearfix">
+                <li><a href="https://{{infos.facebook}}"><i class="icon-3"></i></a></li>
+                <li><a href="https://{{infos.instagram}}"><i class="icon-4"></i></a></li>
+                <li><a href="https://{{infos.twitter}}"><i class="icon-5"></i></a></li>
+            </ul>
+        </section>
+        <!-- banner-section end -->
+
+
+        <!-- about-section -->
+        <section class="about-section">
+            <div class="shape-layer float-bob-y" style="background-image: url({{abouts.background_image.url}});"></div>
+             <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="row align-items-center clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div data-animation-box class="image-box p_relative d_block">
+                            <figure data-animation-text class="overlay-anim-white-bg image p_relative d_block" data-animation="overlay-animation"><img src="{{abouts.picture.url}}" alt=""></figure>
+                            <div class="text-inner">
+                                <h6>{{abouts.item_name}}</h6>
+                                <p>{{abouts.item_location}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content-box p_relative mr_50">
+                            <div class="sec-title">
+                                <span class="sub-title">GET TO KNOW</span>
+                                <h2>{{abouts.title}}</h2>
+                            </div>
+                            <div class="text">
+                                <p>{{abouts.desc}}</p>
+                            </div>
+                            <div class="author-box p_relative d_block">
+                                <div class="quote-box"><img src="assets/images/icons/icon-1.svg" alt=""></div>
+                                <div class="inner">
+                                    <figure class="author-thumb"><img src="{{abouts.author_image.url}}" alt=""></figure>
+                                    <p>“ {{abouts.author_details}} “</p>
+                                    <div class="designation">{{abouts.author_title}} - <span>{{abouts.author_name}}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about-section end -->
+
+
+        <!-- service-section -->
+        <section class="service-section centred">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="row clearfix">
+                    {% for s in services %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <a href="{% url 'service-details' s.id %}" class="inner-box">
+                                <div class="icon-box"><img src="{{s.service_logo.url}}" alt=""></div>
+                                <h4>{{s.title}}</h4>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- service-section end -->
+
+
+        <!-- video-section -->
+        <section class="video-section">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="single-item-carousel owl-carousel owl-theme owl-nav-none">
+                    {% for v in videos %}
+                    <div class="inner-box" style="background-image: url({{v.thumbnail.url}});">
+                        <div class="content-box">
+                            <div class="text">
+                                <h2>{{v.title}} <span>{{v.title2}}</span></h2>
+                                <h4><i class="far fa-map-marker-alt"></i>{{v.location}}</h4>
+                            </div>
+                            <div class="video-btn">
+                                <a href="{{v.video_link}}" class="lightbox-image" data-caption=""><i class="icon-13"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- video-section end -->
+
+
+        <!-- project-section -->
+        <section class="project-section">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="sec-title">
+                    <span class="sub-title">Portfolio</span>
+                    <h2>{{infos.project_title}} <br />{{infos.project_subtitle}}</h2>
+                </div>
+                <div class="carousel-content">
+                    <div class="five-item-carousel owl-carousel owl-theme owl-dots-none">
+                        {% for p in projects %}
+                        <div class="project-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box"><img src="{{p.image.url}}" alt=""></figure>
+                                <div class="content-box">
+                                    <div class="text">
+                                        <h2><a href="project-details.html">{{p.name}}</a></h2>
+                                        <p><i class="far fa-map-marker-alt"></i>{{p.location}}</p>
+                                        <span class="big-text">{{p.serial}}</span>
+                                    </div>
+                                    <div class="link">
+                                        <a href="project-details.html"><i class="icon-7"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="more-btn centred">
+                    <a href="project.html" class="theme-btn btn-one">View All Pojects</a>
+                </div>
+            </div>
+        </section>
+        <!-- project-section end -->
+
+
+        <!-- clients-section -->
+        <section class="clients-section">
+            <div class="shape" style="background-image: url(assets/images/shape/shape-3.png);"></div>
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="auto-container">
+                <div class="five-item-carousel owl-carousel owl-theme owl-nav-none owl-dots-none">
+                     {% for c in clients %}
+                    <figure class="clients-logo"><a href="https://{{c.website_link}}"><img src="{{c.company_logo.url}}" alt=""></a></figure>
+                        {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- clients-section end -->
+
+
+        <!-- news-section -->
+        <section class="news-section">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="sec-title centred">
+                    <span class="sub-title">Blogs</span>
+                    <h2>{{infos.latestNews_title}}</h2>
+                </div>
+                <div class="row clearfix">
+                    {% for ln in latestNews %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-one">
+                            <div class="inner-box">
+                                <div class="content-box">
+                                    <ul class="post-info clearfix">
+                                        <li><i class="icon-16"></i><a href="blog-details.html">{{ln.author}} &nbsp,</a></li>
+                                        <li>{{ln.timestamp}}</li>
+                                    </ul>
+                                    <h3><a href="blog-details.html">{{ln.title}}</a></h3>
+                                    <p>{{ln.get_short_desc}}</p>
+                                </div>
+                                <div class="overlay-content">
+                                    <div class="overlay-inner">
+                                        <ul class="post-info clearfix">
+                                            <li><i class="icon-16"></i><a href="blog-details.html">{{ln.author}} &nbsp,</a></li>
+                                            <li>{{ln.timestamp}}</li>
+                                        </ul>
+                                        <h3><a href="blog-details.html">{{ln.title}}</a></h3>
+                                        <p>{{ln.desc}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- news-section end -->
+
+
+        <!-- main-footer -->
+      {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+<!-- End of .page_wrapper -->
+
+
+{% endblock %}

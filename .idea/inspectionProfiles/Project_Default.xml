@@ -1,0 +1,96 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E301" />
+          <option value="E302" />
+          <option value="W292" />
+          <option value="E303" />
+          <option value="E202" />
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+          <option value="N803" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="wb.models.Slider.*" />
+          <option value="wb.models.Service.*" />
+          <option value="wb.models.About.objects" />
+          <option value="wb.models.Package.feature_set" />
+          <option value="wb.views.ContactViewView" />
+          <option value="wb.models.Video.objects" />
+          <option value="wb.models.Package.objects" />
+          <option value="wb.models.Website_Settings.object" />
+          <option value="wb.models.Website_Settings.objects" />
+          <option value="wb.models.Portfolio.objects" />
+          <option value="iPortfolio.models.User.objects" />
+          <option value="iPortfolio.models.Text.objects" />
+          <option value="iPortfolio.models.About.objects" />
+          <option value="iPortfolio.models.Fact.objects" />
+          <option value="iPortfolio.models.Skill.objects" />
+          <option value="iPortfolio.models.Description.objects" />
+          <option value="iPortfolio.models.Service.objects" />
+          <option value="iPortfolio.models.Testimonial.objects" />
+          <option value="iPortfolio.models.PortfolioApps.objects" />
+          <option value="iPortfolio.models.PortfolioCards.objects" />
+          <option value="iPortfolio.models.PortfolioWeb.objects" />
+          <option value="iPortfolio.models.Navbar.objects" />
+          <option value="iPortfolio.models.Favicon.objects" />
+          <option value="iPortfolio.models.Copyright.objects" />
+          <option value="iPortfolio.models.Resume.resumedescription_set" />
+          <option value="portfolio.models.Site_Info.objects" />
+          <option value="website.models.Category.objects" />
+          <option value="website.models.FlashNews.objects" />
+          <option value="website.models.Slider.objects" />
+          <option value="website.models.Article.objects" />
+          <option value="django.db.models.fields.related.ManyToManyField.all" />
+          <option value="website.models.SportLight.objects" />
+          <option value="website.models.LatestVideo.objects" />
+          <option value="website.models.Video.objects" />
+          <option value="website.models.WebsiteSetting.objects" />
+          <option value="portfolio.models.SiteInfo.objects" />
+          <option value="portfolio.models.Experience.objects" />
+          <option value="portfolio.models.Skill.objects" />
+          <option value="portfolio.models.Awards.objects" />
+          <option value="portfolio.models.Work.objects" />
+          <option value="portfolio.models.Testimonial.objects" />
+          <option value="portfolio.models.MyCV.objects" />
+          <option value="website.models.Article.comment_set" />
+          <option value="django.db.models.fields.related.ForeignKey.username" />
+          <option value="website.models.Comment.id" />
+          <option value="website.models.Comment.objects" />
+          <option value="django.forms.forms.RegisterForm" />
+          <option value="news.models.FlashNews.objects" />
+          <option value="news.models.SportLight.objects" />
+          <option value="news.models.LatestVideo.objects" />
+          <option value="django.views.generic.base.View.get_context_data" />
+          <option value="website.models.Product.objects" />
+          <option value="website.models.Order.objects" />
+          <option value="django.views.generic.base.View.post" />
+          <option value="super.get_context_data" />
+          <option value="website.models.Info.objects" />
+          <option value="website.models.About.objects" />
+          <option value="website.models.Client.objects" />
+          <option value="website.models.Project.objects" />
+          <option value="website.models.Experience.objects" />
+          <option value="website.models.Education.objects" />
+          <option value="website.models.Skill.objects" />
+          <option value="website.models.Testimonial.objects" />
+          <option value="website.models.Copyright.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

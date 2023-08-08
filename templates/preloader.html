@@ -1,0 +1,50 @@
+
+<!-- mouse-pointer -->
+        <div class="mouse-pointer" id="mouse-pointer"></div>
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+         <div class="loader-wrap">
+            <div class="preloader">
+                {% load static %}
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            {% for p in preLoader %}
+                            <span data-text-preloader="{{p.letter}}" class="letters-loading">
+                                {{p.letter}}
+                            </span>
+                           {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+        <div id="search-popup" class="search-popup">
+            <div class="popup-inner">
+                <div class="upper-box clearfix">
+                    <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                    <div class="close-search pull-right"><span class="far fa-times"></span></div>
+                </div>
+                <div class="overlay-layer"></div>
+                <div class="auto-container">
+                    <div class="search-form">
+                        <form method="post" action="http://azim.commonsupport.com/Inventarc/index.html">
+                            <div class="form-group">
+                                <fieldset>
+                                    <input type="search" class="form-control" name="search-input" value="" placeholder="Type your keyword and hit" required >
+                                    <button type="submit"><i class="far fa-search"></i></button>
+                                </fieldset>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

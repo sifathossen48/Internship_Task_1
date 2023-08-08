@@ -1,0 +1,98 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+        {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="outer-container">
+                <div class="bg-layer" style="background-image: url({{infos.blog_page_title_background.url}});"></div>
+                <div class="large-container">
+                    <div class="title-box">
+                        <h2>{{infos.blog_page_title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- news-section -->
+        <section class="news-section blog-grid">
+            <div class="large-container">
+                <div class="row clearfix">
+                    {% for ln in latestNews %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-two">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="blog-details.html"><img src="assets/images/news/news-3.jpg" alt=""></a></figure>
+                                <div class="content-box">
+                                    <ul class="post-info clearfix">
+                                        <li><i class="icon-16"></i><a href="blog-details.html">{{ln.author}} &nbsp;,</a></li>
+                                        <li>{{ln.timestamp}}</li>
+                                    </ul>
+                                    <h3><a href="blog-details.html">{{ln.title}}</a></h3>
+                                    <p>{{ln.desc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- news-section end -->
+
+
+        <!-- main-footer -->
+       {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,426 @@
+/* template-color */
+
+.preloader-close{
+	color: #B19777;
+}
+
+.scroll-to-top .scroll-bar-text{
+	color: #B19777;
+}
+
+.theme-btn.btn-one{
+	background: #B19777;
+}
+
+.xs-sidebar-group .close-side-widget:hover{
+  border-color: #B19777;
+  background: #B19777;
+}
+
+.search-popup .search-form fieldset input[type="search"]:focus{
+  border: 3px solid #B19777 !important;
+}
+
+.main-menu .navigation > li.current > a,
+.main-menu .navigation > li:hover > a{
+  color: #B19777;
+}
+
+.main-menu .navigation > li.current > a:after,
+.main-menu .navigation > li:hover > a:after{
+  background: #B19777;
+}
+
+.main-menu .navigation > li > ul > li > a:hover,
+.main-menu .navigation > li > .megamenu li > a:hover{
+	color: #B19777;
+}
+
+.main-menu .navigation > li > ul > li > ul > li > a:hover{
+  color: #B19777;
+}
+
+.main-header .menu-right-content .search-box-outer:hover{
+  color: #B19777;
+}
+
+.main-header .menu-right-content .nav-btn.nav-toggler:hover{
+  color: #B19777;
+}
+
+.banner-carousel .content-box h2 span{
+  color: #B19777;
+}
+
+.banner-section .banner-thumb-inner .single-item .count-text{
+  color: #B19777;
+}
+
+.about-section .image-box:after{
+  border-top: 1px dashed #B19777;
+}
+
+.sec-title .sub-title{
+  color: #B19777;
+}
+
+.sec-title h2 span{
+  color: #B19777;
+}
+
+.about-section .content-box .author-box .inner .designation span{
+  color: #B19777;
+}
+
+.banner-section .banner-thumb-inner .active.current .single-item:before{
+  background: #B19777;
+}
+
+.banner-carousel .owl-nav button{
+  color: #B19777;
+}
+
+.banner-carousel .owl-nav button:hover{
+  background: #B19777;
+  border-color: #B19777;
+}
+
+.video-section .inner-box .content-box .text h2 span{
+  color: #B19777;
+}
+
+.video-section .inner-box .content-box .text h4{
+  color: #B19777;
+}
+
+.video-section .inner-box .content-box .video-btn a{
+  border: 2px solid #B19777;
+  color: #B19777;
+}
+
+.video-section .owl-theme .owl-dots .owl-dot.active span,
+.video-section .owl-theme .owl-dots .owl-dot span:hover{
+  border-color: #B19777;
+}
+
+.video-section .owl-theme .owl-dots .owl-dot.active span:before,
+.video-section .owl-theme .owl-dots .owl-dot span:hover:before{
+  background: #B19777;
+}
+
+.project-block-one .inner-box .content-box h2 a:hover{
+  color: #B19777;
+}
+
+.project-block-one .inner-box .content-box p{
+  color: #B19777;
+}
+
+.project-block-one .inner-box .content-box .link a:hover{
+  color: #B19777;
+}
+
+.project-section .owl-nav button{
+  background: #B19777;
+}
+
+.project-section .owl-nav button:hover{
+  color: #B19777;
+}
+
+.news-block-one .inner-box .post-info li{
+  color: #B19777;
+}
+
+.news-block-one .inner-box .post-info li a{
+  color: #B19777;
+}
+
+.news-block-one .inner-box h3 a:hover{
+  color: #B19777;
+}
+
+.main-footer .sec-title a{
+  background: #B19777;
+}
+
+.main-footer .sec-title a:hover{
+  color: #B19777;
+}
+
+.main-footer .contact-widget .info-list li a:hover{
+  color: #B19777;
+}
+
+.main-footer .subscribe-widget form .form-group button{
+  background: #B19777;
+}
+
+.main-footer .subscribe-widget form .form-group input:focus{
+  border-color: #B19777 !important;
+}
+
+.main-footer .subscribe-widget .social-links li a:hover{
+  color: #B19777;
+}
+
+.footer-bottom .copyright h4 a:hover{
+  color: #B19777;
+}
+
+.banner-style-two .slider-content .single-item .content-box h2 span{
+  color: #B19777;
+}
+
+.banner-style-two .slider-content .single-item .content-box .info li span{
+  color: #B19777;
+}
+
+.banner-style-two .slider-content .single-item .content-box .info li i{
+  color: #B19777;
+}
+
+.banner-style-two .owl-nav button:hover{
+  border-color: #B19777;
+  background: #B19777;
+}
+
+.curve-text .text h2 span{
+  color: #B19777;
+}
+
+.curve-text .text h3{
+  color: #B19777;
+}
+
+.project-style-two .tab-btns .p-tab-btn h4 span{
+  background: #B19777;
+}
+
+.nav-style-one .owl-nav button:hover{
+  border-color: #B19777;
+  color: #B19777;
+}
+
+.testimonial-block-one .inner-box .quote{
+  color: #B19777;
+}
+
+.testimonial-block-one .inner-box .text span{
+  color: #B19777;
+}
+
+.testimonial-block-one .inner-box .author-box .designation{
+  color: #B19777;
+}
+
+.team-block-one .inner-box .image-box .social-links li a:hover{
+  color: #B19777;
+}
+
+.team-block-one .inner-box .content-box .count-text{
+  -webkit-text-stroke-color: #B19777;
+}
+
+.team-block-one .inner-box .content-box h4 a:hover{
+  color: #B19777;
+}
+
+.team-block-one .inner-box .content-box .designation{
+  color: #B19777;
+}
+
+.team-section .owl-theme .owl-dots .owl-dot.active span,
+.team-section .owl-theme .owl-dots .owl-dot span:hover{
+  border-color: #B19777;
+}
+
+.team-section .owl-theme .owl-dots .owl-dot.active span:before,
+.team-section .owl-theme .owl-dots .owl-dot span:hover:before{
+  background: #B19777;
+}
+
+.news-block-two .inner-box .post-info li{
+  color: #B19777;
+}
+
+.news-block-two .inner-box .post-info li a{
+  color: #B19777;
+}
+
+.news-block-two .inner-box h3 a:hover{
+  color: #B19777;
+}
+
+.main-footer.style-two .subscribe-widget form .form-group textarea:focus{
+  border-color: #B19777;
+}
+
+.main-footer .links-widget .links-list li a:hover{
+  color: #B19777;
+}
+
+.main-footer.style-two .contact-widget .copyright a:hover{
+  color: #B19777;
+}
+
+.main-content-outerbox .mobile-menu .copyright h4 a:hover{
+  color: #B19777;
+}
+
+.banner-style-three .banner-carousel .owl-nav button{
+  background: #B19777;
+}
+
+.banner-style-three .banner-carousel .owl-nav button:hover{
+  color: #B19777;
+}
+
+.banner-style-three .text h1 span{
+  color: #B19777;
+}
+
+.video-section .testimonial-content .text-inner .quote{
+  color: #B19777;
+}
+
+.video-section .testimonial-content .author-box .designation{
+  color: #B19777;
+}
+
+.main-footer.style-three .footer-top h2 span{
+  color: #B19777;
+}
+
+.main-footer.style-three .footer-top .form-inner .form-group input:focus{
+  border-color: #B19777 !important;
+}
+
+.main-footer.style-three .gallery-widget .image-list li .image{
+  background: #B19777;
+}
+
+.page-title:before{
+  background: #B19777;
+}
+
+.testimonial-block-two .inner-box .quote{
+  color: #B19777;
+}
+
+.testimonial-block-two .inner-box .author-box .designation{
+  color: #B19777;
+}
+
+.testimonial-block-two .inner-box:before{
+  background: #B19777;
+}
+
+.about-style-three .image-box .icon-box{
+  background: #B19777;
+}
+
+.service-sidebar .category-widget .category-list li a:before{
+  background: #B19777;
+}
+
+.service-sidebar .category-widget h3:before{
+  background: #B19777;
+}
+
+.project-page-section .filters .filter-tabs li.active,
+.project-page-section .filters .filter-tabs li:hover{
+  color: #B19777; 
+}
+
+.team-page-section .tab-btn-box .tab-btns li.active-btn,
+.team-page-section .tab-btn-box .tab-btns li:hover{
+  color: #B19777; 
+}
+
+.team-details .inner-box .image-box .social-links li a:hover{
+  color: #B19777; 
+}
+
+.team-details .inner-box .content-box .designation{
+  color: #B19777; 
+}
+
+.team-details .inner-box .content-box .social-links li a:hover{
+  color: #B19777; 
+}
+
+.team-details .inner-box .content-box .info-list li span{
+  color: #B19777; 
+}
+
+.team-details .inner-box .content-box .info-list li a:hover{
+  color: #B19777; 
+}
+
+.comingsoon-section .inner-box .form-inner .form-group input:focus{
+  border-color: #B19777 !important;
+}
+
+.error-section .inner-box h2{
+  color: #B19777; 
+}
+
+.blog-details-content .content-one blockquote{
+  border-left: 5px solid #B19777;
+}
+
+.blog-details-content .content-one blockquote .name{
+  color: #B19777;
+}
+
+.blog-details-content .content-one blockquote .name:before{
+  background: #B19777;
+}
+
+.blog-details-content .comment-box .comment .comment-info h6{
+  color: #B19777;
+}
+
+.blog-details-content .comment-box .comment .comment-inner .reply-btn{
+  color: #B19777;
+}
+
+.blog-details-content .comments-form-area .comment-form .form-group input:focus,
+.blog-details-content .comments-form-area .comment-form .form-group textarea:focus{
+  border-color: #B19777 !important;
+}
+
+.blog-sidebar .search-widget h3 span{
+  color: #B19777;
+}
+
+.blog-sidebar .search-widget .search-form .form-group input:focus{
+  border-color: #B19777 !important;
+}
+
+.blog-sidebar .search-widget .search-form .form-group input:focus + button,
+.blog-sidebar .search-widget .search-form .form-group button:hover{
+  color: #B19777;
+}
+
+.blog-sidebar .sidebar-widget .widget-title:before{
+  background: #B19777;
+}
+
+.blog-sidebar .category-widget .category-list li a:before{
+  background: #B19777;
+}
+
+.blog-sidebar .tags-widget .tags-list li a:hover{
+  background: #B19777;
+}
+
+.contact-page-section .form-inner form .form-group input:focus,
+.contact-page-section .form-inner form .form-group textarea:focus{
+  border-color: #B19777 !important;
+}
+
+.contact-page-section .content-box .info-list li a:hover{
+  color: #B19777;
+}

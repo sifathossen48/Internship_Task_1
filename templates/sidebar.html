@@ -1,0 +1,43 @@
+<div class="xs-sidebar-group info-group info-sidebar">
+            <div class="xs-overlay xs-bg-black"></div>
+            <div class="xs-overlay xs-overlay-2 xs-bg-black"></div>
+            <div class="xs-overlay xs-overlay-3 xs-bg-black"></div>
+            <div class="xs-overlay xs-overlay-4 xs-bg-black"></div>
+            <div class="xs-overlay xs-overlay-5 xs-bg-black"></div>
+            <div class="xs-sidebar-widget">
+                <div class="sidebar-widget-container">
+                    <div class="widget-heading">
+                        <a href="#" class="close-side-widget"><i class="fa fa-times"></i></a>
+                    </div>
+                    <div class="sidebar-textwidget">
+                        <div class="sidebar-info-contents">
+                            <div class="content-inner">
+                                <div class="logo">
+                                    <a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt="" /></a>
+                                </div>
+                                <div class="content-box">
+                                    <h4>About Us</h4>
+                                    <p>{{abouts.desc}}</p>
+                                    <a href="about.html" class="theme-btn btn-one">About Us</a>
+                                </div>
+                                <div class="contact-info">
+                                    <h4>Contact Info</h4>
+                                    <ul>
+                                        <li>{{infos.location}}</li>
+                                        <li><a href="tel:{{infos.phone}}">{{infos.phone}}</a></li>
+                                        <li><a href="mailto:{{infos.email}}">{{infos.email}}</a></li>
+                                    </ul>
+                                </div>
+                                <ul class="social-box">
+                                    <li class="facebook"><a href="https://{{infos.facebook}}" class="fab fa-facebook-f"></a></li>
+                                    <li class="twitter"><a href="https://{{infos.twitter}}" class="fab fa-twitter"></a></li>
+                                    <li class="linkedin"><a href="https://{{infos.linkedin}}" class="fab fa-linkedin" ></a></li>
+                                    <li class="instagram"><a href="https://{{infos.instagram}}" class="fab fa-instagram"></a></li>
+                                    <li class="youtube"><a href="https://{{infos.youtube}}" class="fab fa-youtube"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
