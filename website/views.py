@@ -371,10 +371,16 @@ class ErrorView(TemplateView):
 
 class CommentView(View):
     def post(self, request, ln_id):
-        form = forms.CommentForm(data=request.POST)
+        form = forms.CommentForm(request.POST)
         if form.is_valid():
+            name = form.data['name'],
+            email = form.data['email'],
+            comment = form.data['comment']
             Comment.objects.create(
-                ln_id=ln_id
+                name=name,
+                email=email,
+                ln_id=ln_id,
+                comment=comment
             ).save()
         else:
             messages.error(request, 'Invalid data.')
