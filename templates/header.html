@@ -3,84 +3,93 @@
 {% url 'contact' as contact %}
 {% url 'service' as service %}
 
-
-
-
-<header class="main-header">
+ <header class="main-header header-style-two">
             <!-- header-lower -->
             <div class="header-lower">
-                <div class="shape" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt=""></a></figure>
-                    </div>
-                    <div class="menu-area">
-                        <!--Mobile Navigation Toggler-->
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
+                <div class="large-container">
+                    <div class="outer-box">
+                        <div class="logo-box">
+                            <figure class="logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt=""></a></figure>
                         </div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
-                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li class="dropdown {% if request.path == home %} current {% endif %}"><a href="{% url 'home' %}">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home Page 01</a></li>
-                                            <li><a href="index-2.html">Home Page 02</a></li>
-                                            <li><a href="index-3.html">Home Page 03</a></li>
-                                            <li class="dropdown"><a href="index.html">Header Style</a>
-                                                <ul>
-                                                    <li><a href="index.html">Header Style 01</a></li>
-                                                    <li><a href="index-2.html">Header Style 02</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="{% if request.path == about %} current {% endif %}"><a href="{% url 'about' %}">About</a></li>
-                                    <li class="dropdown {% if request.path == service %} current {% endif %}"><a href="#">Services</a>
-                                        <ul>
-                                            <li><a href="{% url 'service' %}">Our Services</a></li>
-                                             {% for s in services %}
-                                            <li><a href="service-details.html">{{s.title}}</a></li>
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Projects</a>
-                                        <ul>
-                                            <li><a href="project.html">Our Project</a></li>
-                                            <li><a href="project-details.html">Project Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Pages</a>
-                                        <ul>
-                                            <li class="dropdown"><a href="index.html">Team</a>
-                                                <ul>
-                                                    <li><a href="{% url 'team' %}">Our Team</a></li>
-                                                    <li><a href="team-details.html">Team Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
-                                            <li><a href="{% url 'coming-soon' %}">Coming Soon</a></li>
-                                            <li><a href="error.html">404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Blog</a>
-                                        <ul>
-                                            <li><a href="{% url 'blog' %}">Our Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="{% if request.path == contact %} current {% endif %}"><a href="{% url 'contact'  %}">Contact</a></li>
-                                </ul>
+                        <div class="menu-area">
+                            <!--Mobile Navigation Toggler-->
+                            <div class="mobile-nav-toggler">
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
                             </div>
-                        </nav>
-                        <div class="menu-right-content">
-                            <div class="search-box-outer search-toggler">
-                                <i class="icon-1"></i>
-                            </div>
-                            <div class="nav-btn nav-toggler navSidebar-button">
-                                <i class="icon-2"></i>
+                            <nav class="main-menu navbar-expand-md navbar-light">
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li class="dropdown {% if request.path == home %} current {% endif %}"><a href="{% url 'home' %}">Home</a>
+                                            <ul>
+                                                <li><a href="{% url 'home' %}">Home Page 01</a></li>
+                                                <li><a href="{% url 'home-2' %}">Home Page 02</a></li>
+                                                <li><a href="{% url 'home-3' %}">Home Page 03</a></li>
+                                                <li class="dropdown"><a href="#">Header Style</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'home' %}">Header Style 01</a></li>
+                                                        <li><a href="{% url 'home-2' %}">Header Style 02</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="{% if request.path == about %} current {% endif %}"><a href="{% url 'about' %}">About</a></li>
+                                        <li class="dropdown {% if request.path == service %} current {% endif %}"><a href="index.html">Services</a>
+                                            <ul>
+                                                <li><a href="{% url 'service' %}">Our Services</a></li>
+                                                  {% for s in services %}
+                                                        <li><a href="{% url 'service-details' s.id %}">{{s.title}}</a></li>
+                                                    {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown {% if request.path == project %} current {% endif %}"><a href="index.html">Projects</a>
+                                            <ul>
+                                                <li><a href="{% url 'project' %}">Our Project</a></li>
+                                                <li><a href="project-details.html">Project Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="index.html">Pages</a>
+                                            <ul>
+                                                <li class="dropdown"><a href="index.html">Team</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'team' %}">Our Team</a></li>
+                                                        <li><a href="team-details.html">Team Details</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                                                <li><a href="{% url 'coming-soon' %}">Coming Soon</a></li>
+                                                <li><a href="{% url 'error' %}">404</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="index.html">Blog</a>
+                                            <ul>
+                                                <li><a href="{% url 'blog' %}">Our Blog</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="{% if request.path == contact %} current {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+                                        <li class="dropdown"><a href="#">Auth</a>
+                                            <ul>
+                                                {% if request.user.is_authenticated %}
+                                                <li><a href="#">{{request.user.username}}'s Profile</a></li>
+                                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                                {% else %}
+                                                <li><a href="{% url 'register' %}">Register</a></li>
+                                                <li><a href="{% url 'login' %}">Login</a></li>
+                                                {% endif %}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="menu-right-content">
+                                <div class="search-box-outer search-toggler">
+                                    <i class="icon-1"></i>
+                                </div>
+                                <div class="nav-btn nav-toggler navSidebar-button">
+                                    <i class="icon-2"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,7 +100,7 @@
             <div class="sticky-header">
                 <div class="outer-box">
                     <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="{{infos.logo.url}}" alt=""></a></figure>
+                        <figure class="logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt=""></a></figure>
                     </div>
                     <div class="menu-area clearfix">
                         <nav class="main-menu clearfix">
@@ -110,13 +119,12 @@
             </div>
         </header>
 
-
   <div class="mobile-menu">
             <div class="menu-backdrop"></div>
             <div class="close-btn"><i class="fas fa-times"></i></div>
 
             <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="{{infos.logo.url}}" alt="" title=""></a></div>
+                <div class="nav-logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt="" title=""></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
                 <div class="contact-info">
                     <h4>Contact Info</h4>
@@ -130,9 +138,9 @@
                     <ul class="clearfix">
                         <li><a href="https://{{infos.twitter}}"><span class="fab fa-twitter"></span></a></li>
                         <li><a href="https://{{infos.facebook}}"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="https://{{infos.pinterest}}"><span class="fab fa-pinterest-p"></span></a></li>
                         <li><a href="https://{{infos.instagram}}"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                        <li><a href="https://{{infos.youtube}}"><span class="fab fa-youtube"></span></a></li>
                     </ul>
                 </div>
             </nav>

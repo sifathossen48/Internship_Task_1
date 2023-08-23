@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.company}} || {{infos.team_page_title}} {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -35,10 +36,10 @@
         <!-- page-title -->
         <section class="page-title centred">
             <div class="outer-container">
-                <div class="bg-layer" style="background-image: url(assets/images/background/page-title.jpg);"></div>
+                <div class="bg-layer" style="background-image: url({{infos.team_page_title_background.url}});"></div>
                 <div class="large-container">
                     <div class="title-box">
-                        <h2>Our Team</h2>
+                        <h2>{{infos.team_page_title}}</h2>
                     </div>
                 </div>
             </div>
@@ -52,366 +53,41 @@
                 <div class="tabs-box">
                     <div class="tab-btn-box centred">
                         <ul class="tab-btns tab-buttons clearfix">
-                            <li class="tab-btn active-btn" data-tab="#tab-1">Web Development</li>
-                            <li class="tab-btn" data-tab="#tab-2">UI/UX Design</li>
-                            <li class="tab-btn" data-tab="#tab-3">Graphics Design</li>
+                            {% for skill in skills %}
+                            <li class="active-btn"  > <a href="{% url 'team' %}?q={{skill.skill_name}} ">{{skill.skill_name}}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="tabs-content">
-                        <div class="tab active-tab" id="tab-1">
+
+                        <div class="tab active-tab" >
                             <div class="row clearfix">
+                                {% for teamMember in professional %}
+
                                 <div class="col-lg-4 col-md-6 col-sm-12 team-block">
                                     <div class="team-block-one">
                                         <div class="inner-box">
                                             <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-1.jpg" alt=""></figure>
+                                                <figure class="image"><img src="{{teamMember.profile.url}}" alt=""></figure>
                                                 <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
+                                                    <li><a href="https://{{teamMember.facebook}}"><i class="icon-3"></i></a></li>
+                                                    <li><a href="https://{{teamMember.instagram}}"><i class="icon-4"></i></a></li>
+                                                    <li><a href="https://{{teamMember.twitter}}"><i class="icon-5"></i></a></li>
                                                 </ul>
                                             </div>
                                             <div class="content-box">
-                                                <span class="count-text">01</span>
-                                                <h4><a href="team-details.html">Gaurav Bhalla</a></h4>
-                                                <span class="designation">Architecture</span>
+                                                <span class="count-text">{{forloop.counter}}</span>
+                                                <h4><a href="{% url 'team-details' teamMember.id %}">{{teamMember.name}}</a></h4>
+                                                <span class="designation">{{teamMember.title}}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-2.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">02</span>
-                                                <h4><a href="team-details.html">Haris Gulati</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-3.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">03</span>
-                                                <h4><a href="team-details.html">Michel Watson</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-4.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">01</span>
-                                                <h4><a href="team-details.html">Gaurav Bhalla</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-5.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">02</span>
-                                                <h4><a href="team-details.html">Haris Gulati</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-6.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">03</span>
-                                                <h4><a href="team-details.html">Michel Watson</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                {% endfor %}
                             </div>
                         </div>
-                        <div class="tab" id="tab-2">
-                            <div class="row clearfix">
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-5.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">02</span>
-                                                <h4><a href="team-details.html">Haris Gulati</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-6.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">03</span>
-                                                <h4><a href="team-details.html">Michel Watson</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-1.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">01</span>
-                                                <h4><a href="team-details.html">Gaurav Bhalla</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-2.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">02</span>
-                                                <h4><a href="team-details.html">Haris Gulati</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-3.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">03</span>
-                                                <h4><a href="team-details.html">Michel Watson</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-4.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">01</span>
-                                                <h4><a href="team-details.html">Gaurav Bhalla</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab" id="tab-3">
-                            <div class="row clearfix">
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-3.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">03</span>
-                                                <h4><a href="team-details.html">Michel Watson</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-4.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">01</span>
-                                                <h4><a href="team-details.html">Gaurav Bhalla</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-5.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">02</span>
-                                                <h4><a href="team-details.html">Haris Gulati</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-6.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">03</span>
-                                                <h4><a href="team-details.html">Michel Watson</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-1.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">01</span>
-                                                <h4><a href="team-details.html">Gaurav Bhalla</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                                    <div class="team-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/team/team-2.jpg" alt=""></figure>
-                                                <ul class="social-links clearfix">
-                                                    <li><a href="index.html"><i class="icon-3"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-4"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-5"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-box">
-                                                <span class="count-text">02</span>
-                                                <h4><a href="team-details.html">Haris Gulati</a></h4>
-                                                <span class="designation">Architecture</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

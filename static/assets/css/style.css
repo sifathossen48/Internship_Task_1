@@ -3049,6 +3049,7 @@ body.out .mouse-pointer {
 
 .main-footer .subscribe-widget form .form-group input[type='text'],
 .main-footer .subscribe-widget form .form-group input[type='email'],
+.main-footer .subscribe-widget form .form-group input[type='password'],
 .main-footer .subscribe-widget form .form-group textarea{
   position: relative;
   display: block;
@@ -6193,6 +6194,8 @@ body.out .mouse-pointer {
 
 .contact-page-section .form-inner form .form-group input[type='text'],
 .contact-page-section .form-inner form .form-group input[type='email'],
+.contact-page-section .form-inner form .form-group input[type='password'],
+.contact-page-section .form-inner form .form-group input,
 .contact-page-section .form-inner form .form-group textarea{
   position: relative;
   display: block;

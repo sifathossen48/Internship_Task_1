@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.company}} || Home {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -49,7 +50,7 @@
                             <div class="icon-box"><img src="{{slider.image.url}}" alt=""></div>
                             <h2>{{slider.title}} <br /><span>{{slider.title2}}</span> {{slider.year}}</h2>
                             <div class="btn-box">
-                                <a href="index.html" class="theme-btn btn-one">View The Prrojects</a>
+                                <a href="{% url 'project' %}" class="theme-btn btn-one">View The Prrojects</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +62,7 @@
                 <div class="owl-carousel owl-theme owl-dots-none owl-nav-none" id="sync2">
                     {% for s in sliders %}
                      <div class="single-item">
-                        <span class="count-text">{{s.item_no}}</span>
+                        <span class="count-text">{{forloop.counter}}</span>
                         <h6>{{s.item_name}}</h6>
                         <p>{{s.item_location}}</p>
                     </div>
@@ -107,7 +108,7 @@
                                 <p>{{abouts.desc}}</p>
                             </div>
                             <div class="author-box p_relative d_block">
-                                <div class="quote-box"><img src="assets/images/icons/icon-1.svg" alt=""></div>
+                                <div class="quote-box"><img src="{{abouts.about_quote_icon.url}}" alt=""></div>
                                 <div class="inner">
                                     <figure class="author-thumb"><img src="{{abouts.author_image.url}}" alt=""></figure>
                                     <p>“ {{abouts.author_details}} “</p>
@@ -198,12 +199,12 @@
                                 <figure class="image-box"><img src="{{p.image.url}}" alt=""></figure>
                                 <div class="content-box">
                                     <div class="text">
-                                        <h2><a href="project-details.html">{{p.name}}</a></h2>
+                                        <h2><a href="{% url 'project-details' p.id %}">{{p.name}}</a></h2>
                                         <p><i class="far fa-map-marker-alt"></i>{{p.location}}</p>
-                                        <span class="big-text">{{p.serial}}</span>
+                                        <span class="big-text">{{forloop.counter}}</span>
                                     </div>
                                     <div class="link">
-                                        <a href="project-details.html"><i class="icon-7"></i></a>
+                                        <a href="{% url 'project-details' p.id %}"><i class="icon-7"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +213,7 @@
                     </div>
                 </div>
                 <div class="more-btn centred">
-                    <a href="project.html" class="theme-btn btn-one">View All Pojects</a>
+                    <a href="{% url 'project' %}" class="theme-btn btn-one">View All Pojects</a>
                 </div>
             </div>
         </section>
@@ -259,20 +260,20 @@
                             <div class="inner-box">
                                 <div class="content-box">
                                     <ul class="post-info clearfix">
-                                        <li><i class="icon-16"></i><a href="blog-details.html">{{ln.author}} &nbsp,</a></li>
+                                        <li><i class="icon-16"></i><a href="{% url 'blog-details' ln.id %}">{{ln.author}} &nbsp,</a></li>
                                         <li>{{ln.timestamp}}</li>
                                     </ul>
-                                    <h3><a href="blog-details.html">{{ln.title}}</a></h3>
+                                    <h3><a href="{% url 'blog-details' ln.id %}">{{ln.title}}</a></h3>
                                     <p>{{ln.get_short_desc}}</p>
                                 </div>
                                 <div class="overlay-content">
                                     <div class="overlay-inner">
                                         <ul class="post-info clearfix">
-                                            <li><i class="icon-16"></i><a href="blog-details.html">{{ln.author}} &nbsp,</a></li>
+                                            <li><i class="icon-16"></i><a href="{% url 'blog-details' ln.id %}">{{ln.author}} &nbsp,</a></li>
                                             <li>{{ln.timestamp}}</li>
                                         </ul>
-                                        <h3><a href="blog-details.html">{{ln.title}}</a></h3>
-                                        <p>{{ln.desc}}</p>
+                                        <h3><a href="{% url 'blog-details' ln.id %}">{{ln.title}}</a></h3>
+                                        <p>{{ln.get_short_desc2}}</p>
                                     </div>
                                 </div>
                             </div>

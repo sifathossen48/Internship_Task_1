@@ -1,0 +1,45 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+<section class="contact-page-section">
+            <div class="pattern-layer" style="background-image: url({{contacts.page_background.url}});"></div>
+            <div class="large-container">
+                <div class="row align-items-center">
+                   <div class="col-lg-5 col-md-12 col-sm-12 form-column center">
+                        <div class="form-inner">
+                            <div class="sec-title">
+                                <span class="sub-title"></span>
+                                <h2>Login</h2>
+                            </div>
+                            <form method="post" action="{% url 'login' %}" id="contact-form" class="default-form">
+                                   {% for m in messages %}
+                                     <li>{{m}}</li>
+                                   {% endfor %}
+                                {% csrf_token %}
+                                <div class="row clearfix">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="text" name="username" placeholder="Your Name" required="">
+                                    </div>
+                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="password" name="password" placeholder="Your Password *" required="">
+                                    </div>
+
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                        <button class="theme-btn btn-one" type="submit" name="submit-form">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+{% endblock %}

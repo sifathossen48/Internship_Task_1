@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.company}} || {{infos.contact_page_title}} {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -37,7 +38,7 @@
                 <div class="bg-layer" style="background-image: url({{contacts.title_background.url}});"></div>
                 <div class="large-container">
                     <div class="title-box">
-                        <h2>Contact Us</h2>
+                        <h2>{{infos.contact_page_title}}</h2>
                     </div>
                 </div>
             </div>

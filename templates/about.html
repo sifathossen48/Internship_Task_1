@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.company}} || {{infos.about_page_title}} {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -38,7 +39,7 @@
                 <div class="bg-layer" style="background-image: url({{infos.about_title_background.url}});"></div>
                 <div class="large-container">
                     <div class="title-box">
-                        <h2>ABOUT</h2>
+                        <h2>{{infos.about_page_title}}</h2>
                     </div>
                 </div>
             </div>
@@ -48,7 +49,7 @@
 
         <!-- about-section -->
         <section class="about-section alternat-2">
-            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-4.png);"></div>
+            <div class="pattern-layer" style="background-image: url({{abouts.background_image.url}});"></div>
             <div class="large-container">
                 <div class="row align-items-center clearfix">
                     <div class="col-lg-6 col-md-12 col-sm-12 image-column">
@@ -76,7 +77,7 @@
                                 <p>{{abouts.desc}}</p>
                             </div>
                             <div class="btn-box">
-                                <a href="about.html" class="theme-btn btn-one">All Informamtion</a>
+                                <a href="{% url 'about' %}" class="theme-btn btn-one">{{abouts.button_text}}</a>
                             </div>
                         </div>
                     </div>
@@ -108,7 +109,7 @@
 
         <!-- testimonial-style-two -->
         <section class="testimonial-style-two">
-            <div class="bg-layer" style="background-image: url(assets/images/background/testimonial-bg.jpg);"></div>
+            <div class="bg-layer" style="background-image: url({{infos.testimonial_background.url}});"></div>
             <div class="large-container">
                 <div class="three-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                     {% for t in testimonials %}
@@ -148,7 +149,7 @@
             <div class="large-container">
                 <div class="sec-title centred">
                     <span class="sub-title">Professional</span>
-                    <h2>Our Team</h2>
+                    <h2>{{infos.team_page_title}}</h2>
                 </div>
                 <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
 
@@ -164,7 +165,7 @@
                                 </ul>
                             </div>
                             <div class="content-box">
-                                <span class="count-text">{{teamMember.id}}</span>
+                                <span class="count-text">{{forloop.counter}}</span>
                                 <a href="{% url 'team-details' teamMember.id %}">
                                   <h4>  {{teamMember.name}} </h4>
                                 </a>

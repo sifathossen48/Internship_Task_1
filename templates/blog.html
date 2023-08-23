@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.company}} || {{infos.blog_page_title}} {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -55,14 +56,14 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 news-block">
                         <div class="news-block-two">
                             <div class="inner-box">
-                                <figure class="image-box"><a href="blog-details.html"><img src="assets/images/news/news-3.jpg" alt=""></a></figure>
+                                <figure class="image-box"><a href="{% url 'blog-details' ln.id %}"><img src="{{ln.image1.url}}" alt=""></a></figure>
                                 <div class="content-box">
                                     <ul class="post-info clearfix">
-                                        <li><i class="icon-16"></i><a href="blog-details.html">{{ln.author}} &nbsp;,</a></li>
+                                        <li><i class="icon-16"></i><a href="{% url 'blog-details' ln.id %}">{{ln.author}} &nbsp;,</a></li>
                                         <li>{{ln.timestamp}}</li>
                                     </ul>
-                                    <h3><a href="blog-details.html">{{ln.title}}</a></h3>
-                                    <p>{{ln.desc}}</p>
+                                    <h3><a href="{% url 'blog-details' ln.id %}">{{ln.title}}</a></h3>
+                                    <p>{{ln.get_short_desc2}}</p>
                                 </div>
                             </div>
                         </div>

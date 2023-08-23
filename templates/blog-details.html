@@ -1,0 +1,211 @@
+{% extends 'bash.html' %}
+{% block title %} {{infos.blog_details_page_title}} || {{ln.title}} {% endblock %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+       {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+       {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="outer-container">
+                <div class="bg-layer" style="background-image: url({{infos.blog_details_page_title_background.url}});"></div>
+                <div class="large-container">
+                    <div class="title-box">
+                        <h2>{{infos.blog_details_page_title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- sidebar-page-container -->
+        <section class="sidebar-page-container">
+            <div class="large-container">
+                <div class="row clearfix">
+                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                        <div class="blog-details-content">
+                            <figure class="upper-image"><img src="{{ln.image1.url}}" alt=""></figure>
+                            <div class="news-post">
+                                <div class="news-block-two">
+                                    <div class="inner-box">
+                                        <div class="content-box">
+                                            <ul class="post-info clearfix">
+                                                <li><i class="icon-16"></i><a href="{% url 'blog-details' ln.id %}">{{ln.author}} &nbsp;,</a></li>
+                                                <li>{{ln.timestamp}}</li>
+                                            </ul>
+                                            <h3>{{ln.title}}</h3>
+                                            <div class="text">
+                                                <p>
+                                                    {{ln.desc}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-one">
+                                    <blockquote>
+                                        <div class="quote"><img src="{{ln.quote_icon.url}}" alt=""></div>
+                                        <p>{{ln.quote}}</p>
+                                        <span class="name">{{ln.author_of_quote}}</span>
+                                    </blockquote>
+                                    <div class="image-box">
+                                        <div class="row clearfix">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                                <figure class="image"><img src="{{ln.image2.url}}" alt=""></figure>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                                <figure class="image"><img src="{{ln.image3.url}}" alt=""></figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <p>{{ln.desc2}}</p>
+                                    </div>
+                                </div>
+                                {% for comment in ln.get_comment %}
+                                <div class="comment-box">
+                                    <div class="comment">
+                                        <figure class="thumb-box">
+                                            <img src="assets/images/news/comment-1.jpg" alt="">
+                                        </figure>
+                                        <div class="comment-inner">
+                                            <div class="comment-info">
+                                                <h6>{{comment.name}} <span>{{comment.timestamp}}</span></h6>
+                                            </div>
+                                            <p>{{comment.comment}}</p>
+                                            <a href="#" class="reply-btn">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <div class="comments-form-area">
+                                    <h3>Leave a Reply</h3>
+                                    <form action="{% url 'blog-comment' ln.id %}" method="post" class="comment-form">
+                                        {% csrf_token %}
+                                        <div class="row clearfix">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                                <input type="text" name="name" placeholder="Your Name" required="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                                <input type="email" name="email" placeholder="Your Email" required="">
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                                <textarea name="comment" placeholder="Message here"></textarea>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                                <button type="submit" class="theme-btn btn-one">Message Us</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                        <div class="blog-sidebar">
+                            <div class="sidebar-widget search-widget">
+                                <div class="search-inner">
+                                    <h3><span>Search Your</span> Keyword</h3>
+                                    <form action="{% url 'search' ln.id %}" class="search-form" method="get">
+                                        <div class="form-group">
+                                            <input type="search" name="items" placeholder="Search" required="">
+                                            <button type="submit"><i class="icon-1"></i></button>
+                                        </div>
+                                    </form>
+                                     <h1>Search Results</h1>
+                                    <ul>
+                                        {% for item in items %}
+                                        <li>{{ item.name }} - {{ item.category }}</li>
+                                        {% endfor %}
+                                    </ul>
+
+
+                                </div>
+                            </div>
+
+                            <div class="sidebar-widget category-widget">
+                                <div class="widget-title">
+                                    <h3>Categories</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="category-list clearfix">
+                                         {% for ln in latestNews %}
+                                        <li><a href="{% url 'blog-details' ln.id %}" class="current">{{ln.category}}<i class="icon-15"></i></a></li>
+                                         {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-widget tags-widget">
+                                <div class="widget-title">
+                                    <h3>Categories</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="tags-list clearfix">
+                                         {% for ln in latestNews %}
+                                        <li><a href="{% url 'blog-details' ln.id %}">{{ln.category}}</a></li>
+                                         {% endfor%}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- sidebar-page-container end -->
+
+
+        <!-- main-footer -->
+        {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+{% endblock %}
+
+

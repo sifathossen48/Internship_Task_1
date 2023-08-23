@@ -1,0 +1,63 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+         {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+       {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- error-section -->
+        <section class="error-section centred">
+            <div class="bg-layer" style="background-image: url({{infos.error_page_title_background.url}});"></div>
+            <div class="auto-container">
+                <div class="inner-box">
+                    <h2>{{infos.error_head}}</h2>
+                    <h3>{{infos.error_page_title}}</h3>
+                    <h4>T{{infos.error_page_subtitle}}d</h4>
+                    <div class="form-inner">
+                        <form action="{% url 'error-email' %}" method="post">
+                            {% for m in messages%}
+                                <li>{{m}}</li>
+                            {% endfor %}
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email Address" required="">
+                                <button type="submit"><i class="icon-1"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- error-section end -->
+        
+    </div>
+
+
+{% endblock %}

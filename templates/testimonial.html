@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.company}} || {{infos.testimonial_page_title}} {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -75,10 +76,10 @@
                 <div class="row clearfix">
                     <div class="col-lg-6 col-md-12 col-sm-12 thumb-column">
                         <div class="thumb-item">
-                            <div class="quote-box"><img src="assets/images/icons/icon-7.png" alt=""></div>
+                            <div class="quote-box"><img src="{{infos.top_client_icon.url}}" alt=""></div>
                             <div class="thumb-box">
                                 {% for top in topClients %}
-                                <div class="thumb thumb-{{top.thumb_no}}" style="background-image:url({{top.image.url}});"></div>
+                                <div class="thumb thumb-{{forloop.counter}}" style="background-image:url({{top.image.url}});"></div>
                                  {% endfor %}
                             </div>
                         </div>

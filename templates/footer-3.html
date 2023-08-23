@@ -1,0 +1,104 @@
+    <footer class="main-footer style-three">
+                    <div class="pattern-layer" style="background-image: url({{infos.footer_background.url}});"></div>
+                    <div class="large-container">
+                        <div class="footer-top">
+                            <div class="top-inner">
+                                <div class="row clearfix align-items-center">
+                                    <div class="col-lg-7 col-md-12 col-sm-12 text-column">
+                                        <div class="text">
+                                            <h2>Get update by signup <span>Newsletter</span></h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-12 col-sm-12 form-column">
+                                        <div class="form-inner">
+                                            <form action="{% url 'newsLetter' %}" method="post">
+                                                {% for m in messages%}
+                                               <li>{{m}}</li>
+                                                 {% endfor %}
+                                                    {% csrf_token %}
+                                                <div class="form-group">
+                                                    <input type="email" name="email" placeholder="Enter your mail" required="">
+                                                    <button type="submit" class="theme-btn btn-one">Subscribe</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-section">
+                            <div class="row clearfix">
+                                <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                                    <div class="links-widget footer-widget">
+                                        <div class="widget-title">
+                                            <h3>Quick Link</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="links-list clearfix">
+                                                <li><a href="{% url 'home' %}">Home</a></li>
+                                                <li><a href="{% url 'about' %}">About</a></li>
+                                                <li><a href="{% url 'service' %}">Services</a></li>
+                                                <li><a href="{% url 'project' %}">Projects</a></li>
+                                                <li><a href="{% url 'team' %}">Our Team</a></li>
+                                                <li><a href="{% url 'blog' %}">Blog</a></li>
+                                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                                    <div class="gallery-widget footer-widget">
+                                        <div class="widget-title">
+                                            <h3>Instagram</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="image-list clearfix">
+                                                {% for gallery in photos %}
+                                                    <li>
+                                                    <figure class="image">
+                                                        <img src="{{gallery.image.url}}" alt="">
+                                                        <a href="{{gallery.link}}"><i class="icon-4"></i></a>
+                                                    </figure>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
+                                    <div class="links-widget footer-widget">
+                                        <div class="widget-title">
+                                            <h3>Services</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="links-list clearfix">
+                                                 {% for s in services %}
+                                                <li><a href="{% url 'service-details' s.id %}">{{s.title}}</a></li>
+                                                 {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                                    <div class="links-widget footer-widget">
+                                        <div class="widget-title">
+                                            <h3>Legal</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="links-list clearfix">
+                                                <li><a href="index-3.html">Privacy policy</a></li>
+                                                <li><a href="index-3.html">Terms & conditions</a></li>
+                                                <li><a href="index-3.html">Cookies policy</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom centred">
+                            <div class="copyright">
+                                <h4>Copyright By &copy; <a href="https://{{infos.designer_profile}}">{{infos.designer}}</a> - {{infos.designs_year}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </footer>

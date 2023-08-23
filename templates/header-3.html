@@ -1,0 +1,100 @@
+ <header class="main-header header-style-three">
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="large-container">
+                    <div class="outer-box">
+                        <div class="logo-box">
+                            <figure class="logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt=""></a></figure>
+                        </div>
+                        <div class="menu-area">
+                            <!--Mobile Navigation Toggler-->
+                            <div class="mobile-nav-toggler">
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                            </div>
+                            <nav class="main-menu navbar-expand-md navbar-light">
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li class="current dropdown current"><a href="#">Home</a>
+                                            <ul>
+                                                <li><a href="{% url 'home' %}">Home Page 01</a></li>
+                                                <li><a href="{% url 'home-2' %}">Home Page 02</a></li>
+                                                <li><a href="{% url 'home-3' %}">Home Page 03</a></li>
+                                                <li class="dropdown"><a href="index.html">Header Style</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'home' %}">Header Style 01</a></li>
+                                                        <li><a href="{% url 'home-2' %}">Header Style 02</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url 'about' %}">About</a></li>
+                                        <li class="dropdown"><a href="#">Services</a>
+                                            <ul>
+                                                <li><a href="{% url 'service' %}">Our Services</a></li>
+                                                  {% for s in services %}
+                                                <li><a href="{% url 'service-details' s.id %}">{{s.title}}</a></li>
+                                                 {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">Projects</a>
+                                            <ul>
+                                                <li><a href="{% url 'project' %}">Our Project</a></li>
+                                                <li><a href="project-details.html">Project Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">Pages</a>
+                                            <ul>
+                                                <li><a href="{% url 'team' %}">Our Team</a></li>
+                                                <li><a href="team-details.html">Team Details</a></li>
+                                                <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                                                <li><a href="{% url 'coming-soon' %}">Coming Soon</a></li>
+                                                <li><a href="{% url 'error' %}">404</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">Blog</a>
+                                            <ul>
+                                                <li><a href="{% url 'blog' %}">Our Blog</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url 'contact'  %}">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="menu-right-content">
+                                <div class="search-box-outer search-toggler">
+                                    <i class="icon-1"></i>
+                                </div>
+                                <div class="nav-btn nav-toggler navSidebar-button">
+                                    <i class="icon-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt=""></a></figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                        <div class="menu-right-content">
+                            <div class="search-box-outer search-toggler">
+                                <i class="icon-1"></i>
+                            </div>
+                            <div class="nav-btn nav-toggler navSidebar-button">
+                                <i class="icon-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>

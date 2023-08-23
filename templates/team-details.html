@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.team_details_page_title}} || {{teamMember.name}} {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -35,10 +36,10 @@
         <!-- page-title -->
         <section class="page-title centred">
             <div class="outer-container">
-                <div class="bg-layer" style="background-image: url(assets/images/background/page-title-6.jpg);"></div>
+                <div class="bg-layer" style="background-image: url({{infos.team_details_page_title_background.url}});"></div>
                 <div class="large-container">
                     <div class="title-box">
-                        <h2>Team Details</h2>
+                        <h2>{{infos.team_details_page_title}}</h2>
                     </div>
                 </div>
             </div>
@@ -53,18 +54,18 @@
                     <div class="image-box">
                         <figure class="image"><img src="{{teamMember.profile.url}}" alt=""></figure>
                         <ul class="social-links clearfix">
-                            <li><a href="index.html"><i class="icon-3"></i></a></li>
-                            <li><a href="index.html"><i class="icon-4"></i></a></li>
-                            <li><a href="index.html"><i class="icon-5"></i></a></li>
+                            <li><a href="https://{{teamMember.facebook}}"><i class="icon-3"></i></a></li>
+                            <li><a href="https://{{teamMember.instagram}}"><i class="icon-4"></i></a></li>
+                            <li><a href="https://{{teamMember.twitter}}"><i class="icon-5"></i></a></li>
                         </ul>
                     </div>
                     <div class="content-box">
                         <h2>{{teamMember.name}}</h2>
                         <span class="designation">{{teamMember.title}}</span>
                         <ul class="social-links clearfix">
-                            <li><a href="index.html"><i class="icon-3"></i></a></li>
-                            <li><a href="index.html"><i class="icon-4"></i></a></li>
-                            <li><a href="index.html"><i class="icon-5"></i></a></li>
+                            <li><a href="https://{{teamMember.facebook}}"><i class="icon-3"></i></a></li>
+                            <li><a href="https://{{teamMember.instagram}}"><i class="icon-4"></i></a></li>
+                            <li><a href="https://{{teamMember.twitter}}"><i class="icon-5"></i></a></li>
                         </ul>
                         <p>{{teamMember.desc}}</p>
                         <ul class="info-list clearfix">
@@ -105,8 +106,8 @@
                                     </ul>
                                 </div>
                                 <div class="content-box">
-                                    <span class="count-text">{{other_members.id}}</span>
-                                    <h4><a href="team-details.html">{{other_members.name}}</a></h4>
+                                    <span class="count-text">{{forloop.counter}}</span>
+                                    <h4><a href="{% url 'team-details' other_members.id %}">{{other_members.name}}</a></h4>
                                     <span class="designation">{{other_members.title}}</span>
                                 </div>
                             </div>

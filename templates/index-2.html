@@ -1,0 +1,461 @@
+{% extends 'bash.html' %}
+{% block title %} {{infos.company}} || Home 2 {% endblock %}
+{% load static %}
+{% block container %}
+    <div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+        {% include 'header-2.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+        <!-- End Mobile Menu -->
+
+
+        <!-- banner-style-two -->
+        <section class="banner-style-two">
+            <div class="shape" style="background-image: url({{infos.slider_shape.url}});"></div>
+            <div class="large-container">
+                <div class="row clearfix">
+                    <div class="col-lg-8 col-md-12 col-sm-12 slider-block">
+                        <div class="slider-content">
+                            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
+                                {% for slider in sliders %}
+                                <div class="single-item">
+                                    <figure class="image-box"><img src="{{slider.banner.url}}" alt=""></figure>
+                                    <div class="content-box">
+                                        <div class="icon-box"><img src="{{slider.image.url}}" alt=""></div>
+                                        <h2>{{slider.title}}</h2>
+                                        <ul class="info clearfix">
+                                            <li><i class="far fa-map-marker-alt"></i>{{slider.item_location}}</li>
+                                            <li><i class="icon-20"></i>{{slider.land}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 image-column">
+                         {% for s in sliders %}
+                             {% if forloop.last %}
+                                <div class="image-inner">
+                                    <figure class="image"><img src="{{s.item_image.url}}" alt=""></figure>
+                                    <div class="text">
+                                        <h6>{{s.item_name}}</h6>
+                                        <p>{{s.item_location}}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- banner-style-two end -->
+
+
+        <!-- about-style-two -->
+        <section class="about-style-two">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="row clearfix">
+                    <div class="col-lg-5 col-md-12 col-sm-12 content-column">
+                        <div class="content-box">
+                            <div class="sec-title">
+                                <span class="sub-title">Who We are</span>
+                                <h2>About the <span>{{infos.service_about_title}}</span></h2>
+                            </div>
+                            <div class="text">
+                                <p>{{abouts.desc}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12 col-sm-12 inner-column">
+                        <div class="inner-box centred">
+                            <div class="curve-text">
+                                <div class="shape" style="background-image: url(assets/images/shape/shape-5.png);"></div>
+                                <span class="curved-circle">Welcome To Our Inventarc</span>
+                                <div class="text">
+                                    <div class="inner">
+                                        <h2>10<span>Years</span></h2>
+                                        <h3>Experience</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about-style-two end -->
+
+
+        <!-- service-section -->
+        <section class="service-section centred">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="row clearfix">
+                    {% for s in services %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <a href="{% url 'service-details' s.id %}" class="inner-box">
+                                <div class="icon-box"><img src="{{s.service_logo.url}}" alt=""></div>
+                                <h4>{{s.title}}</h4>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+        <!-- service-section end -->
+
+
+        <!-- project-style-two -->
+        <section class="project-style-two">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="project-tab">
+                    <div class="row clearfix">
+                        <div class="col-lg-4 col-md-12 col-sm-12 title-column">
+                            <div class="title-inner">
+                                <div class="sec-title">
+                                    <span class="sub-title">Porrtfolio</span>
+                                    <h2>Our Completed <span>Architecture Projects</span></h2>
+                                    <p>Penatibus turpis vel eget cursus ut et. Lacus velit, venenatis eu morbi egestas amet, nunc. Ut sem libero sed nisl tincidunt tristique egestas non vitae. Pulvinar quis duis leo in quis arcu enim.</p>
+                                </div>
+                                <div class="tab-btn-box">
+                                    <div class="tab-btns product-tab-btns clearfix">
+                                        <div class="p-tab-btn active-btn" data-tab="#tab-1">
+                                            <h4>Interior Design <span>2</span></h4>
+                                        </div>
+                                        <div class="p-tab-btn" data-tab="#tab-2">
+                                            <h4>Archtecture <span>2</span></h4>
+                                        </div>
+                                        <div class="p-tab-btn" data-tab="#tab-3">
+                                            <h4>Urban Design <span>2</span></h4>
+                                        </div>
+                                        <div class="p-tab-btn" data-tab="#tab-4">
+                                            <h4>Discr Design <span>2</span></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-12 col-sm-12">
+                            <div class="p-tabs-content">
+                                <div class="p-tab active-tab" id="tab-1">
+                                    <div class="two-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-6.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>APEX</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-7.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>Delux</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-tab" id="tab-2">
+                                    <div class="two-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-6.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>APEX</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-7.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>Delux</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-tab" id="tab-3">
+                                    <div class="two-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-6.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>APEX</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-7.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>Delux</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-tab" id="tab-4">
+                                    <div class="two-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-6.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>APEX</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="project-block-two">
+                                            <div class="inner-box">
+                                                <figure class="image-box"><img src="assets/images/project/project-7.jpg" alt=""></figure>
+                                                <div class="text">
+                                                    <h6>Delux</h6>
+                                                    <p>San Diego, California</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- project-style-two end -->
+
+
+        <!-- testimonial-section -->
+        <section class="testimonial-section">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 thumb-column">
+                        <div class="thumb-item">
+                            <div class="quote-box"><img src="{{infos.top_client_icon.url}}" alt=""></div>
+                            <div class="thumb-box">
+                               {% for top in topClients %}
+                                <div class="thumb thumb-{{forloop.counter}}" style="background-image:url({{top.image.url}});"></div>
+                                 {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                        <div class="carousel-content">
+                            <div class="sec-title">
+                                <span class="sub-title">Client Testimonial</span>
+                                <h2>Our Client gave <span>us <br />Feedback</span></h2>
+                            </div>
+                            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                                {% for t in testimonials %}
+                                 <div class="testimonial-block-two">
+                                    <div class="inner-box">
+                                        <div class="quote">“</div>
+                                        <p>{{t.quote}}</p>
+                                        <div class="author-box">
+                                            <figure class="author-thumb"><img src="{{t.author_image.url}}" alt=""></figure>
+                                            <h4>{{t.author_name}}</h4>
+                                            <span class="designation">{{t.author_title}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- testimonial-section end -->
+
+
+        <!-- video-section -->
+        <section class="video-section alternat-2">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="single-item-carousel owl-carousel owl-theme owl-nav-none">
+                     {% for v in videos %}
+                    <div class="inner-box" style="background-image: url({{v.thumbnail.url}});">
+                        <div class="content-box">
+                            <div class="text">
+                                <h2>{{v.title}} <span>{{v.title2}}</span></h2>
+                                <h4><i class="far fa-map-marker-alt"></i>{{v.location}}</h4>
+                            </div>
+                            <div class="video-btn">
+                                <a href="{{v.video_link}}" class="lightbox-image" data-caption=""><i class="icon-13"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- video-section end -->
+
+
+        <!-- team-section -->
+        <section class="team-section">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="sec-title centred">
+                    <span class="sub-title">Professional</span>
+                    <h2>Our Team</h2>
+                </div>
+                <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
+                     {% for teamMember in professional %}
+                            <div class="team-block-one">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><img src="{{teamMember.profile.url}}" alt=""></figure>
+                                        <ul class="social-links clearfix">
+                                            <li><a href="https://{{teamMember.facebook}}"><i class="icon-3"></i></a></li>
+                                            <li><a href="https://{{teamMember.instagram}}"><i class="icon-4"></i></a></li>
+                                            <li><a href="https://{{teamMember.twitter}}"><i class="icon-5"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="content-box">
+                                        <span class="count-text">{{teamMember.id}}</span>
+                                        <a href="{% url 'team-details' teamMember.id %}">
+                                          <h4>  {{teamMember.name}} </h4>
+                                        </a>
+                                        <span class="designation">{{teamMember.title}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- team-section end -->
+
+
+        <!-- news-section -->
+        <section class="news-section">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="inner-container">
+                    <div class="sec-title centred">
+                        <span class="sub-title">Blogs</span>
+                        <h2>{{infos.latestNews_title}}</h2>
+                    </div>
+                    <div class="row clearfix">
+                        {% for ln in latestNews %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-two">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="{% url 'blog-details' ln.id %}"><img src="{{ln.image1.url}}" alt=""></a></figure>
+                                <div class="content-box">
+                                    <ul class="post-info clearfix">
+                                        <li><i class="icon-16"></i><a href="{% url 'blog-details' ln.id %}">{{ln.author}} &nbsp;,</a></li>
+                                        <li>{{ln.timestamp}}</li>
+                                    </ul>
+                                    <h3><a href="{% url 'blog-details' ln.id %}">{{ln.title}}</a></h3>
+                                    <p>{{ln.get_short_desc2}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- news-section end -->
+
+
+        <!-- main-footer -->
+       {% include 'footer-2.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+{% endblock %}

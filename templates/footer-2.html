@@ -1,0 +1,92 @@
+ <footer class="main-footer style-two">
+            <div class="pattern-layer" style="background-image: url({{infos.footer_background.url}});"></div>
+            <div class="large-container">
+                <div class="widget-section">
+                    <div class="row clearfix">
+                        <div class="col-lg-4 col-md-12 col-sm-12 footer-column">
+                            <div class="subscribe-widget footer-widget">
+                                <div class="sec-title">
+                                    <span class="sub-title">Contact Us</span>
+                                    <h2>{{infos.contact_title}} {{infos.contact_subtitle}}.</h2>
+                                </div>
+                                <div class="form-inner">
+                                    <form method="post" action="{% url 'contact-us' %}" id="contact-form" class="default-form">
+                                   {% for m in messages %}
+                                     <li>{{m}}</li>
+                                   {% endfor %}
+                                {% csrf_token %}
+                                <div class="row clearfix">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="text" name="username" placeholder="Your Name" required="">
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <input type="text" name="phone" required="" placeholder="Your Phone">
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <input type="text" name="subject" required="" placeholder="Subject">
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="email" name="email" placeholder="Your Email *" required="">
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <textarea name="message" placeholder="Message here"></textarea>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                        <button class="theme-btn btn-one" type="submit" name="submit-form">Message Us</button>
+                                    </div>
+                                </div>
+                            </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 footer-column">
+                            <div class="links-widget footer-widget">
+                                <div class="widget-title">
+                                    <h3>Quick Link</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="row clearfix">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 list-column">
+                                            <ul class="links-list clearfix">
+                                                 <li><a href="{% url 'home' %}">Home</a></li>
+                                                <li><a href="{% url 'about' %}">About</a></li>
+                                                <li><a href="{% url 'service' %}">Services</a></li>
+                                                <li><a href="{% url 'project' %}">Projects</a></li>
+                                                <li><a href="{% url 'team' %}">Our Team</a></li>
+                                                <li><a href="{% url 'blog' %}">Blog</a></li>
+                                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 list-column">
+                                            <ul class="links-list clearfix">
+                                                <li><a href="index-2.html">Privacy policy </a></li>
+                                                <li><a href="index-2.html">Terms & conditions</a></li>
+                                                <li><a href="index-2.html">Cookies policy</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 footer-column">
+                            <div class="contact-widget footer-widget">
+                                <figure class="footer-logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt=""></a></figure>
+                                <div class="text">
+                                    <p>{{contacts.contact_desc}}</p>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li><i class="icon-17"></i><a href="tel:{{infos.phone}}">{{infos.phone}}</a></li>
+                                        <li><i class="icon-18"></i><a href="mailto:{{infos.email}}">{{infos.email}}</a></li>
+                                        <li><i class="far fa-map-marker-alt"></i>{{infos.location}}</li>
+                                    </ul>
+                                </div>
+                                <div class="copyright">
+                                    <h4>Copyright By &copy; <a href="https://{{infos.designer_profile}}">{{infos.designer}}</a> - {{infos.designs_year}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>

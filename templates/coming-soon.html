@@ -1,4 +1,5 @@
 {% extends 'bash.html' %}
+{% block title %} {{infos.company}} || {{comingsoon.page_title}} {% endblock %}
 {% load static %}
 {% block container %}
 
@@ -20,11 +21,11 @@
             <div class="bg-layer" style="background-image: url({{comingsoon.page_background.url}});"></div>
             <div class="large-container">
                 <div class="inner-box">
-                    <figure class="logo"><a href="index.html"><img src="{{infos.logo.url}}" alt=""></a></figure>
+                    <figure class="logo"><a href="{% url 'home' %}"><img src="{{infos.logo.url}}" alt=""></a></figure>
                     <h3>{{comingsoon.page_subtitle}}</h3>
                     <h2>{{comingsoon.page_title}}</h2>
                     <div class="timer p_relative d_block">
-                        <div class="cs-countdown" data-countdown="{{comingsoon.date}}"></div>
+                        <div class="cs-countdown" data-countdown="{{ comingsoon.date|date:'Y-m-d H:i:s' }}"></div>
                     </div>
                     <div class="form-inner">
                         <h4>{{comingsoon.form_title}} </h4>
