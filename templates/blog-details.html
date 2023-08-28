@@ -92,6 +92,7 @@
                                     </div>
                                 </div>
                                 {% for comment in ln.get_comment %}
+
                                 <div class="comment-box">
                                     <div class="comment">
                                         <figure class="thumb-box">
@@ -99,7 +100,7 @@
                                         </figure>
                                         <div class="comment-inner">
                                             <div class="comment-info">
-                                                <h6>{{comment.name}} <span>{{comment.timestamp}}</span></h6>
+                                                <h6>{{comment.name|safe}} <span>{{comment.timestamp}}</span></h6>
                                             </div>
                                             <p>{{comment.comment}}</p>
                                             <a href="#" class="reply-btn">Reply</a>
@@ -113,13 +114,13 @@
                                         {% csrf_token %}
                                         <div class="row clearfix">
                                             <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                <input type="text" name="name" placeholder="Your Name" required="">
+                                                <input type="text" name="name" id="name" placeholder="Your Name" required="">
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                                <input type="email" name="email" placeholder="Your Email" required="">
+                                                <input type="email" name="email" id="email" placeholder="Your Email" required="">
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                                <textarea name="comment" placeholder="Message here"></textarea>
+                                                <textarea name="comment" id="comment" placeholder="Message here"></textarea>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
                                                 <button type="submit" class="theme-btn btn-one">Message Us</button>
@@ -136,18 +137,12 @@
                             <div class="sidebar-widget search-widget">
                                 <div class="search-inner">
                                     <h3><span>Search Your</span> Keyword</h3>
-                                    <form action="{% url 'search' ln.id %}" class="search-form" method="get">
+                                    <form action="#" class="search-form" method="get">
                                         <div class="form-group">
                                             <input type="search" name="items" placeholder="Search" required="">
                                             <button type="submit"><i class="icon-1"></i></button>
                                         </div>
                                     </form>
-                                     <h1>Search Results</h1>
-                                    <ul>
-                                        {% for item in items %}
-                                        <li>{{ item.name }} - {{ item.category }}</li>
-                                        {% endfor %}
-                                    </ul>
 
 
                                 </div>

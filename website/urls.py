@@ -18,12 +18,11 @@ urlpatterns = [
     path('service/details/<int:service_id>/', views.ServiceDetailView.as_view(), name='service-details'),
     path('testimonial/', views.TestimonialView.as_view(), name='testimonial'),
     path('blog/', views.BlogView.as_view(), name='blog'),
-    path('blog-details/<int:ln_id>', views.BlogDetailView.as_view(), name='blog-details'),
-    path('blog-details/comment/<int:ln_id>', views.CommentView.as_view(), name='blog-comment'),
+    path('blog-details/<int:ln_id>/', views.BlogDetailView.as_view(), name='blog-details'),
+    path('blog-details/comment/<int:ln_id>/', views.CommentView.as_view(), name='blog-comment'),
     path('coming-soon/', views.ComingSoonView.as_view(), name='coming-soon'),
     path('subscribe/', views.SubscribeView.as_view(), name='subscribe'),
     path('error/', views.ErrorView.as_view(), name='error'),
     path('error/email/', views.ErrorEmailView.as_view(), name='error-email'),
-    path('search/<int:ln_id>', views.search_items, name='search'),
     path('team/', views.team, name='team')
 ]

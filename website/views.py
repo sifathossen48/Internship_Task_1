@@ -253,31 +253,11 @@ class BlogDetailView(View):
             'services': Service.objects.all(),
             'abouts': About.objects.last(),
             'latestNews': LatestNews.objects.all()
-
         }
         return render(request, 'blog-details.html', context=context)
 
 
-def search_items(request):
-    form = LatestNewsSearchForm(request.GET)
 
-    if form.is_valid():
-        name = form.cleaned_data.get('name')
-        category = form.cleaned_data.get('category')
-
-        items = LatestNews.objects.all()
-
-        if name:
-            items = items.filter(name__icontains=name)
-
-        if category:
-            items = items.filter(category__icontains=category)
-
-        context = {'form': form, 'items': items}
-        return render(request, 'blog-details.html', context)
-
-    context = {'form': form}
-    return render(request, 'blog-details.html', context)
 
 
 class ProjectView(TemplateView):
@@ -370,8 +350,12 @@ class ErrorView(TemplateView):
 
 
 class CommentView(View):
+    def get(self,request,ln_id):
+        return redirect(f"/blog-details/{ln_id}/")
+
     def post(self, request, ln_id):
-        form = forms.CommentForm(request.POST)
+        form = forms.CommentForm(data=request.POST)
+
         if form.is_valid():
             name = form.data['name'],
             email = form.data['email'],
@@ -379,9 +363,10 @@ class CommentView(View):
             Comment.objects.create(
                 name=name,
                 email=email,
-                ln_id=ln_id,
-                comment=comment
-            ).save()
+                comment=comment,
+                news_id=ln_id
+             ).save()
+
         else:
             messages.error(request, 'Invalid data.')
-        return redirect(request, f"/blog-details/{ln_id}/")
+        return redirect(f"/blog-details/{ln_id}/")
