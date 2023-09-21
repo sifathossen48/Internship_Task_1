@@ -32,11 +32,15 @@ class LoginForm(forms.Form):
     username = forms.CharField(max_length=20)
     password = forms.CharField(max_length=32)
 
-class LatestNewsSearchForm(forms.Form):
-    name = forms.CharField(required=False)
-    category = forms.CharField(required=False)
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('name', 'email', 'comment')
+
+class NewsSearchForm(forms.Form):
+    searchQuery = forms.CharField(max_length=100)
+
+class SearchForm(forms.Form):
+    allSearchQuery = forms.CharField(max_length=100)

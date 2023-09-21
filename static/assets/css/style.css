@@ -3049,7 +3049,6 @@ body.out .mouse-pointer {
 
 .main-footer .subscribe-widget form .form-group input[type='text'],
 .main-footer .subscribe-widget form .form-group input[type='email'],
-.main-footer .subscribe-widget form .form-group input[type='password'],
 .main-footer .subscribe-widget form .form-group textarea{
   position: relative;
   display: block;

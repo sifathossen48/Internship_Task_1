@@ -1,0 +1,142 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block container %}
+<div class="boxed_wrapper">
+
+        <!-- mouse-pointer -->
+
+        <!-- mouse-pointer end -->
+
+
+        <!-- preloader -->
+       {% include 'preloader.html' %}
+        <!-- preloader end -->
+
+
+        <!--Search Popup-->
+
+
+
+        <!-- sidebar cart item -->
+        {% include 'sidebar.html' %}
+        <!-- END sidebar widget item -->
+
+
+        <!-- main header -->
+        {% include 'header.html' %}
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+
+
+        <!-- End Mobile Menu -->
+    <h1>Showing results for <span style="color: #5bc1ac">"{{ query }}"</span></h1>
+
+
+        <!-- news-section -->
+        <section class="news-section blog-grid">
+            <div class="large-container">
+                <div class="row clearfix">
+
+                    {% for ln in blog_results %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-two">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="{% url 'blog-details' ln.id %}"><img src="{{ln.image1.url}}" alt=""></a></figure>
+                                <div class="content-box">
+                                    <ul class="post-info clearfix">
+                                        <li><i class="icon-16"></i><a href="{% url 'blog-details' ln.id %}">{{ln.author}} &nbsp;,</a></li>
+                                        <li>{{ln.timestamp}}</li>
+                                    </ul>
+                                    <h3><a href="{% url 'blog-details' ln.id %}">{{ln.title}}</a></h3>
+                                    <p>{{ln.get_short_desc2}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     {% empty %}
+                        <h3>No News Results Found</h3>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+        <!-- news-section end -->
+        <!-- project-section -->
+       <section class="news-section blog-grid">
+            <div class="large-container">
+                <div class="row clearfix">
+
+                    {% for p in projects_results %}
+                        <div class="project-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box"><img src="{{p.image.url}}" alt=""></figure>
+                                <div class="content-box">
+                                    <div class="text">
+                                        <h2><a href="{% url 'project-details' p.id %}">{{p.name}}</a></h2>
+                                        <p><i class="far fa-map-marker-alt"></i>{{p.location}}</p>
+                                        <span class="big-text">{{forloop.counter}}</span>
+                                    </div>
+                                    <div class="link">
+                                        <a href="{% url 'project-details' p.id %}"><i class="icon-7"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <h3>No Project Results Found</h3>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+        <!-- service-section -->
+          <section class="service-section centred">
+            <div class="line-shape">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="large-container">
+                <div class="row clearfix">
+                    {% for s in services_results %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <a href="{% url 'service-details' s.id %}" class="inner-box">
+                                <div class="icon-box"><img src="{{s.service_logo.url}}" alt=""></div>
+                                <h4>{{s.title}}</h4>
+                            </a>
+                        </div>
+                    </div>
+                     {% empty %}
+                        <h3>No Services Results Found</h3>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+        <!-- main-footer -->
+       {% include 'footer.html' %}
+        <!-- main-footer end -->
+
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+
+    </div>
+{% endblock %}

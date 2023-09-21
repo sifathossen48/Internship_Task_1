@@ -137,9 +137,10 @@
                             <div class="sidebar-widget search-widget">
                                 <div class="search-inner">
                                     <h3><span>Search Your</span> Keyword</h3>
-                                    <form action="#" class="search-form" method="get">
+                                    <form action="{% url 'search_news' %}" class="search-form" method="get" >
+                                        {% csrf_token %}
                                         <div class="form-group">
-                                            <input type="search" name="items" placeholder="Search" required="">
+                                            <input type="search" name="searchQuery" placeholder="Search" required="">
                                             <button type="submit"><i class="icon-1"></i></button>
                                         </div>
                                     </form>

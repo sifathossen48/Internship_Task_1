@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView
 
-from .forms import LatestNewsSearchForm
+from .forms import NewsSearchForm, SearchForm
 from .models import Skill, TeamMember, Gallery, Comment
 
 from website import forms
@@ -202,12 +202,12 @@ class TeamView(TemplateView):
         return context
 
 
-def team(request):
-    q = request.GET.get('q')
-    professional = TeamMember.objects.filter(skill__name__icontains=q)
-    skills = Skill.objects.all()
-    context = {'skills': skills, 'professional': professional}
-    return render(request, 'team.html', context)
+# def team(request):
+#     q = request.GET.get('q')
+#     professional = TeamMember.objects.filter(skill__name__icontains=q)
+#     skills = Skill.objects.all()
+#     context = {'skills': skills, 'professional': professional}
+#     return render(request, 'team.html', context)
 
 
 class BlogView(TemplateView):
@@ -219,6 +219,7 @@ class BlogView(TemplateView):
         context['infos'] = Info.objects.last()
         context['latestNews'] = LatestNews.objects.all()
         context['abouts'] = About.objects.last()
+        context['services'] = Service.objects.all()
         return context
 
 
@@ -254,10 +255,35 @@ class BlogDetailView(View):
             'abouts': About.objects.last(),
             'latestNews': LatestNews.objects.all()
         }
+
         return render(request, 'blog-details.html', context=context)
+def search_news(request):
+    infos = Info.objects.get()
+    services = Service.objects.filter(is_draft=False)
+    latestNews = LatestNews.objects.all()
+    abouts = About.objects.last()
+    if request.method == 'GET':
+        form = forms.NewsSearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['searchQuery']
+            search_results = LatestNews.objects.filter(title__contains=query)
+            if search_results.exists():
+                messages.success(request, f"{search_results.count()} results found.")
+            else:
+                messages.error(request, "Do not found any related news!")
 
-
-
+            return render(request, 'search_result.html', {'results': search_results,
+                                                          'query': query,
+                                                          'infos': infos,
+                                                          'services': services,
+                                                          'latestNews': latestNews,
+                                                          'abouts': abouts
+                                                          })
+        else:
+            messages.error(request, "Invalid data!")
+    else:
+        form = forms.NewsSearchForm()
+    return render(request, 'blog-details.html', {'form':form})
 
 
 class ProjectView(TemplateView):
@@ -270,6 +296,7 @@ class ProjectView(TemplateView):
         context['latestNews'] = LatestNews.objects.all()
         context['projects'] = Project.objects.all()
         context['abouts'] = About.objects.last()
+        context['services'] = Service.objects.all()
         return context
 
 
@@ -370,3 +397,24 @@ class CommentView(View):
         else:
             messages.error(request, 'Invalid data.')
         return redirect(f"/blog-details/{ln_id}/")
+
+def search(request):
+    infos = Info.objects.get()
+    services = Service.objects.filter(is_draft=False)
+    abouts = About.objects.last()
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['allSearchQuery']
+            # Perform search across models
+            blog_results = LatestNews.objects.filter(title__icontains=query)
+            projects_results = Project.objects.filter(name__icontains=query)
+            services_results = Service.objects.filter(title__icontains=query)
+            return render(
+                request,
+                'all_search_results.html',
+                {'blog_results': blog_results, 'projects_results': projects_results, 'services_results':services_results, 'infos': infos,'services': services, 'abouts': abouts, 'query': query},
+            )
+    else:
+        form = SearchForm()
+    return render(request, 'all_search_results.html', {'form': form})

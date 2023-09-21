@@ -24,5 +24,7 @@ urlpatterns = [
     path('subscribe/', views.SubscribeView.as_view(), name='subscribe'),
     path('error/', views.ErrorView.as_view(), name='error'),
     path('error/email/', views.ErrorEmailView.as_view(), name='error-email'),
-    path('team/', views.team, name='team')
+    path('search/', views.search_news, name='search_news'),
+    path('all-search/', views.search, name='search')
+
 ]

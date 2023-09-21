@@ -36,10 +36,11 @@
                 <div class="overlay-layer"></div>
                 <div class="auto-container">
                     <div class="search-form">
-                        <form method="post" action="http://azim.commonsupport.com/Inventarc/index.html">
+                        <form method="get" action="{% url 'search' %}" >
+                            {% csrf_token %}
                             <div class="form-group">
                                 <fieldset>
-                                    <input type="search" class="form-control" name="search-input" value="" placeholder="Type your keyword and hit" required >
+                                    <input type="search" class="form-control" name="allSearchQuery" value="" placeholder="Type your keyword and hit" required >
                                     <button type="submit"><i class="far fa-search"></i></button>
                                 </fieldset>
                             </div>
